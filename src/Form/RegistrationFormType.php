@@ -25,7 +25,6 @@ class RegistrationFormType extends AbstractType
                     new Email([
                         'message' => "L'adresse email n'est pas valide !",
                     ]),
-                    'message' => 'Un compte existe déjà !',
                 ],
             ])
             ->add('agreeTerms', CheckboxType::class, [
