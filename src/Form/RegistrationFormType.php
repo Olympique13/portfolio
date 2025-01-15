@@ -25,10 +25,7 @@ class RegistrationFormType extends AbstractType
                     new Email([
                         'message' => "L'adresse email n'est pas valide !",
                     ]),
-                    new Regex([
-                        'pattern' => '/@synergiefamily.com$/',
-                        'message' => 'L\'adresse email doit se terminer par @synergiefamily.com.',
-                    ]),
+                    'message' => 'Un compte existe déjà !',
                 ],
             ])
             ->add('agreeTerms', CheckboxType::class, [
