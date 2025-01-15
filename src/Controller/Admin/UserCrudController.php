@@ -5,9 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Doctrine\ORM\EntityManagerInterface;
@@ -31,14 +29,7 @@ class UserCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->setDisabled()->hideOnForm(),
-            EmailField::new('email')
-                ->setFormTypeOption('constraints', [
-                    new \Symfony\Component\Validator\Constraints\Email(),
-                    new \Symfony\Component\Validator\Constraints\Regex([
-                        'pattern' => '/@synergiefamily\.com$/',
-                        'message' => 'L\'adresse mail doit finir par @synergiefamily.com',
-                    ]),
-                ]),
+            EmailField::new('email'),
             TextField::new('password')
                 ->hideOnIndex()
                 ->setFormTypeOption('disabled', $pageName === 'edit'), //Y'a aussi new pour la page d'ajout 
