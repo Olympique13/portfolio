@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\StageRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 #[ORM\Entity(repositoryClass: StageRepository::class)]
 class Stage
@@ -36,6 +38,14 @@ class Stage
 
     #[ORM\Column(length: 255)]
     private ?string $email_tuteur = null;
+
+    #[ORM\OneToMany(mappedBy: 'stage', targetEntity: CompteRendu::class)]
+    private Collection $compteRendus;
+
+    public function __construct()
+    {
+        $this->compteRendus = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -134,6 +144,36 @@ class Stage
     public function setEmailTuteur(string $email_tuteur): static
     {
         $this->email_tuteur = $email_tuteur;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, CompteRendu>
+     */
+    public function getCompteRendus(): Collection
+    {
+        return $this->compteRendus;
+    }
+
+    public function addCompteRendu(CompteRendu $compteRendu): static
+    {
+        if (!$this->compteRendus->contains($compteRendu)) {
+            $this->compteRendus->add($compteRendu);
+            $compteRendu->setStage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCompteRendu(CompteRendu $compteRendu): static
+    {
+        if ($this->compteRendus->removeElement($compteRendu)) {
+            // set the owning side to null (unless already changed)
+            if ($compteRendu->getStage() === $this) {
+                $compteRendu->setStage(null);
+            }
+        }
 
         return $this;
     }

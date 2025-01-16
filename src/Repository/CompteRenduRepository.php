@@ -16,28 +16,11 @@ class CompteRenduRepository extends ServiceEntityRepository
         parent::__construct($registry, CompteRendu::class);
     }
 
-    //    /**
-    //     * @return CompteRendu[] Returns an array of CompteRendu objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('c')
-    //            ->andWhere('c.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('c.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
-
-    //    public function findOneBySomeField($value): ?CompteRendu
-    //    {
-    //        return $this->createQueryBuilder('c')
-    //            ->andWhere('c.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
+        public function findByEntreprise(): array
+        {
+            return $this->createQueryBuilder('c')
+                ->getQuery()
+                ->getResult()
+            ;
+        }
 }

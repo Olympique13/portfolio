@@ -13,9 +13,9 @@ class CompteRendu
     #[ORM\Column]
     private ?int $id = null;
     
-    #[ORM\ManyToOne]
+    #[ORM\ManyToOne(inversedBy: 'compteRendus')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Stage $Stage = null;
+    private ?Stage $stage = null;
 
     #[ORM\Column(length: 255)]
     private ?string $message = null;
@@ -28,12 +28,12 @@ class CompteRendu
 
     public function getStage(): ?Stage
     {
-        return $this->Stage;
+        return $this->stage;
     }
 
-    public function setStage(?Stage $Stage): static
+    public function setStage(?Stage $stage): static
     {
-        $this->Stage = $Stage;
+        $this->stage = $stage;
 
         return $this;
     }
