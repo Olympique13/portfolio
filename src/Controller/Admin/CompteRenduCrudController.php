@@ -6,8 +6,10 @@ use App\Entity\Stage;
 use App\Entity\CompteRendu;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
@@ -30,6 +32,8 @@ class CompteRenduCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->hideOnForm(),
+            TextField::new('titre'),
+            SlugField::new('slug', 'Slug')->setTargetFieldName('titre')->hideOnIndex(),
             AssociationField::new('stage', 'Entreprise')
                 ->setLabel('Entreprise')
                 ->setFormTypeOptions([

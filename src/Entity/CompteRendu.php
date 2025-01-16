@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\CompteRenduRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+
 
 #[ORM\Entity(repositoryClass: CompteRenduRepository::class)]
 class CompteRendu
@@ -19,6 +21,13 @@ class CompteRendu
 
     #[ORM\Column(length: 255)]
     private ?string $message = null;
+
+    #[ORM\Column(length: 100)]
+    private ?string $titre = null;
+
+    #[Gedmo\Slug(fields: ['titre'])]
+    #[ORM\Column(length: 255)]
+    private ?string $slug = null;
 
 
     public function getId(): ?int
@@ -46,6 +55,30 @@ class CompteRendu
     public function setMessage(string $message): static
     {
         $this->message = $message;
+
+        return $this;
+    }
+
+    public function getTitre(): ?string
+    {
+        return $this->titre;
+    }
+
+    public function setTitre(string $titre): static
+    {
+        $this->titre = $titre;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): static
+    {
+        $this->slug = $slug;
 
         return $this;
     }
