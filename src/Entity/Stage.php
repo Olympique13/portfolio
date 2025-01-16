@@ -34,6 +34,9 @@ class Stage
     #[ORM\Column(length: 15)]
     private ?string $telephone = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $email_tuteur = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -119,6 +122,18 @@ class Stage
     public function setTelephone(string $telephone): static
     {
         $this->telephone = $telephone;
+
+        return $this;
+    }
+
+    public function getEmailTuteur(): ?string
+    {
+        return $this->email_tuteur;
+    }
+
+    public function setEmailTuteur(string $email_tuteur): static
+    {
+        $this->email_tuteur = $email_tuteur;
 
         return $this;
     }
