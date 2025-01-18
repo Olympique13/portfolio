@@ -1,0 +1,37 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Nos Articles
+{% endblock %}
+
+{% block body %}
+<div class="grid grid-cols-4 gap-4">
+    <h1 class="text-3xl font-bold text-center mb-6">Nos Articles</h1>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+
+
+    <div id="articles-container">
+        {% if stage|length > 0 %}
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+                {% for stages in stage %}
+                    <div class="bg-white border border-gray-200 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                        <a href="#">
+                            <h2 class="text-2xl font-bold mb-3 text-gray-800 hover:text-blue-600 transition-colors">{{ stages.adresse }}</h2>
+                        </a>
+                        <p class="text-gray-600 mb-4">{{ stages.entreprise }}</p>
+                        <a href="#" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition-colors">
+                            Lire la suite
+                            <svg class="w-4 h-4 ml-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 14 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                            </svg>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-center text-gray-700 text-lg mt-8">Il n'y a pas encore d'articles disponibles.</p>
+        {% endif %}
+    </div>
+{% endblock %}
