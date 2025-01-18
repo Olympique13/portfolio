@@ -6,6 +6,8 @@ use App\Repository\StageRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Gedmo\Mapping\Annotation as Gedmo;
+
 
 #[ORM\Entity(repositoryClass: StageRepository::class)]
 class Stage
@@ -41,6 +43,13 @@ class Stage
 
     #[ORM\OneToMany(mappedBy: 'stage', targetEntity: CompteRendu::class)]
     private Collection $compteRendus;
+
+    #[ORM\Column(length: 255)]
+    private ?string $logo = null;
+
+    #[ORM\Column(length: 255)]
+    #[Gedmo\Slug(fields: ['entreprise'])]
+    private ?string $slug = null;
 
     public function __construct()
     {
@@ -174,6 +183,30 @@ class Stage
                 $compteRendu->setStage(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getLogo(): ?string
+    {
+        return $this->logo;
+    }
+
+    public function setLogo(string $logo): static
+    {
+        $this->logo = $logo;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): static
+    {
+        $this->slug = $slug;
 
         return $this;
     }

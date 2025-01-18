@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="5e3703e1-03f8-4a0e-99ae-594f19f48502" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/footer.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/footer.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/StageCrudController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/StageCrudController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Stage.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Stage.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/navbar.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/stage/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/stage/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
