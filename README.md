@@ -1,33 +1,33 @@
-# Portfolio Hamdaoui Rayan
+# Portfolio with Symfony & TailwindCss
+
+## Pourquoi ?
+Ce portfolio me permet d'acquérir de nouvelles compétences avec le framework Symfony
 
 
+
+# Cloner et utiliser le projet
 
 ## Ajouter les fichiers sur votre environnement local
 
-Rendez vous sur votre invite de commande dans votre dossier www/, effectuer les commandes suivantes :
+Rendez vous sur votre invite de commande dans votre dossier www/ et cloner le projet :
 
 ```
-cd votre_repo
+git clone https://github.com/Olympique13/portfolioSymfony.git
 
 ```
 
 
 ## Mettre à jour les packages, composants etc..
+
 ```
 cd monRepo
 composer install
+npm install
 php bin/console cache:clear
+npm run watch
 ```
 
 ***
 
-## Name
-Mon blog pour apprendre symfony et tout ce qui vas avec
-
-## Description
-Ce blog m'as permis d'apprendre le fonctionnement génial du framework Symfony
-Créer sans prise de tête
-Création d'un back office site.local/admin
-
 ## Project status
-Toujours en cours de modification !
+Toujours en cours de modification ! (18/01/2025)
