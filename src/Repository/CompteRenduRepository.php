@@ -23,4 +23,15 @@ class CompteRenduRepository extends ServiceEntityRepository
                 ->getResult()
             ;
         }
+
+    public function findByStage(int $stageId): array
+    {
+        return $this->createQueryBuilder('c')
+            ->innerJoin('c.stage', 's')
+            ->andWhere('c.stage = :stageId')
+            ->setParameter('stageId', $stageId)
+            ->getQuery()
+            ->getResult();
+    }
+
 }

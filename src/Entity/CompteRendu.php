@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\CompteRenduRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 
@@ -19,7 +20,7 @@ class CompteRendu
     #[ORM\JoinColumn(nullable: false)]
     private ?Stage $stage = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: Types::TEXT)]
     private ?string $message = null;
 
     #[ORM\Column(length: 100)]

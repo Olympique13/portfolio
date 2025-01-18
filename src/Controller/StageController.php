@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Entity\CompteRendu;
+use App\Repository\CompteRenduRepository;
 use App\Repository\StageRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,6 +19,24 @@ class StageController extends AbstractController
 
         return $this->render('stage/index.html.twig', [
             'stage' => $stage,
+        ]);
+    }
+
+    #[Route('/stage/{slug}', name: 'app_stage_show')]
+    public function show(String $slug, StageRepository $stageRepository, CompteRenduRepository $compteRenduRepository): Response
+    {
+        $stage = $stageRepository->findOneBy(['slug' => $slug]);
+        if (!$stage) {
+            throw $this->createNotFoundException('Stage non trouvé.');
+        }
+
+
+        $compteRendu = $compteRenduRepository->findByStage($stage->getId());
+
+
+        return $this->render('stage/compteRendu.html.twig', [
+            'stage' => $stage,
+            'compteRendu' => $compteRendu,
         ]);
     }
 }
