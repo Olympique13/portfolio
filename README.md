@@ -2,7 +2,8 @@
 
 Ce portfolio me permet d'acquérir de nouvelles compétences avec le framework Symfony.
 
-# Outils utilisés
+# Pré-requis :
+## Outils utilisés
 
 - Symfony 7.2 (framework PHP)
 - Composer 2.8 (gestionnaire de dépendances PHP)
