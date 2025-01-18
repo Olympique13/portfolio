@@ -1,6 +1,5 @@
 # Portfolio with Symfony & TailwindCss
 
-## Pourquoi ?
 Ce portfolio me permet d'acquérir de nouvelles compétences avec le framework Symfony
 
 
