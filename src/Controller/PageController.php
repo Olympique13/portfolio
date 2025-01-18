@@ -14,4 +14,10 @@ class PageController extends AbstractController
     {
         return $this->render('page/accueil.html.twig', array());
     }
+
+    #[Route('/decouvrez-le-bts-sio', name: 'app_sio')]
+    public function sio(): Response
+    {
+        return $this->render('page/sio.html.twig', array());
+    }
 }

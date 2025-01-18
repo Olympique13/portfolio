@@ -13,12 +13,16 @@
 
 		{% block javascripts %}
 			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-			<script src="../assets/js/article.js"></script>
+			<script src="../assets/js/accueil.js"></script>
 		{% endblock %}
 
 	</head>
-	<body
-		class="font-sanstext-gray-800bg-gray-100overflow-x-hidden" id="body">
+	<style>
+		html{
+			scroll-behavior: smooth;
+		}
+	</style>
+	<body class="font-mono text-gray-800 bg-gray-100 overflow-x-hidden" id="body">
 		{# Navbar #}
 		{% include 'navbar.html.twig' %}
 
