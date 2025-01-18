@@ -29,6 +29,7 @@
                             <h2 class="text-2xl font-bold mb-3 text-gray-800 hover:text-blue-600 transition-colors">{{ stages.entreprise }}</h2>
                         </a>
                         <p class="text-gray-600 mb-4">{{ stages.adresse }}</p>
+                            <span class="mb-8">Du {{ stages.debut|date('d/m/Y') }} au {{ stages.fin|date('d/m/y') }}</span>
                         <a href="{{ path ('app_stage_show', {'slug' : stages.slug}) }}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition-colors">
                             Voir le compte rendu
                             <svg class="w-4 h-4 ml-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 14 10">

@@ -5,16 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e3703e1-03f8-4a0e-99ae-594f19f48502" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/css/compteRendu.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/styles/compteRendu.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/stage/compteRendu.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/StageController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/StageController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/CompteRendu.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/CompteRendu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/CompteRenduRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/CompteRenduRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/article/AfficherArticle.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/article/afficherInfoArticle.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/stage/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/stage/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
