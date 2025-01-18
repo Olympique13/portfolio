@@ -1,18 +1,23 @@
 # Portfolio with Symfony & TailwindCss
 
-Ce portfolio me permet d'acquérir de nouvelles compétences avec le framework Symfony
+Ce portfolio me permet d'acquérir de nouvelles compétences avec le framework Symfony.
 
+# Outils utilisés
 
+- Symfony 7.2 (framework PHP)
+- Composer 2.8 (gestionnaire de dépendances PHP)
+- npm 8.18 (gestionnaire de paquets JavaScript)
+- Tailwind CSS 3.4 (framework CSS)
 
 # Cloner et utiliser le projet
 
 ## Ajouter les fichiers sur votre environnement local
 
-Rendez vous sur votre invite de commande dans votre dossier www/ et cloner le projet :
+Rendez-vous sur votre invite de commande dans votre dossier `www/` et clonez le projet :
+
 
 ```
 git clone https://github.com/Olympique13/portfolioSymfony.git
-
 ```
 
 
@@ -26,7 +31,11 @@ php bin/console cache:clear
 npm run watch
 ```
 
+Une fois ces étapes terminées, vous pouvez commencer à travailler sur le projet localement.
+
 ***
 
 ## Project status
+
 Toujours en cours de modification ! (18/01/2025)
+
