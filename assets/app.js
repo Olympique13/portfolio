@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
             sisrContent.style.flexDirection = "column";
             sisrContent.style.alignItems = "center";
             slamContent.style.display = "none";
+
+            sisrContent.scrollIntoView({ behavior: "smooth", block: "start" });
         });
 
         // Gérer le clic sur le bouton SLAM
@@ -18,6 +20,8 @@ document.addEventListener("DOMContentLoaded", function () {
             slamContent.style.flexDirection = "column";
             slamContent.style.alignItems = "center";
             sisrContent.style.display = "none";
+
+            slamContent.scrollIntoView({ behavior: "smooth", block: "start" });
         });
     }
 });
