@@ -24,4 +24,21 @@ document.addEventListener("DOMContentLoaded", function () {
             slamContent.scrollIntoView({ behavior: "smooth", block: "start" });
         });
     }
+
+        const renduPrev = document.getElementById('renduPrev');
+        const renduNext = document.getElementById('renduNext');
+        const buttonNext = document.getElementById('buttonNext');
+
+        if (renduPrev && buttonNext && renduNext) {
+            buttonNext.addEventListener("click", function () {
+                renduNext.style.display = "flex";
+                renduNext.style.flexDirection = "column";
+                renduNext.style.alignItems = "center";
+                renduPrev.style.display = "none";
+                buttonNext.style.display = "none";
+
+                renduNext.scrollIntoView({behavior: "smooth", block: "start"});
+            });
+        }
+
 });
