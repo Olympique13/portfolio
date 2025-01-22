@@ -38,5 +38,5 @@ Une fois ces étapes terminées, vous pouvez commencer à travailler sur le proj
 
 ## Project status
 
-Toujours en cours de modification ! (18/01/2025)
+Toujours en cours de modification ! (22/01/2025)
 
