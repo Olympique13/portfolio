@@ -49,12 +49,12 @@
                 "symfony/validator": "7.2.*",
                 "symfony/web-link": "7.2.*",
                 "symfony/webpack-encore-bundle": "^2.2",
-                "symfony/webpack-encore-pack": "*",
                 "symfony/yaml": "7.2.*",
                 "symfonycasts/tailwind-bundle": "^0.6.1",
                 "symfonycasts/verify-email-bundle": "^1.17.3",
                 "twig/extra-bundle": "^2.12|^3.18",
-                "twig/twig": "^2.12|^3.18"
+                "twig/twig": "^2.12|^3.18",
+                "vich/uploader-bundle": "^2.5"
         },
         "config": {
                 "allow-plugins": {

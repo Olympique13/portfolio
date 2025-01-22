@@ -7,9 +7,13 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 #[ORM\Entity(repositoryClass: StageRepository::class)]
+#[Vich\Uploadable]
 class Stage
 {
     #[ORM\Id]
@@ -45,11 +49,18 @@ class Stage
     private Collection $compteRendus;
 
     #[ORM\Column(length: 255)]
-    private ?string $logo = null;
-
-    #[ORM\Column(length: 255)]
     #[Gedmo\Slug(fields: ['entreprise'])]
     private ?string $slug = null;
+
+    #[Vich\UploadableField(mapping: 'Stage', fileNameProperty: 'imageName', size: 'imageSize')]
+    #[Assert\File(maxSize: '20M', mimeTypes: ['image/jpeg', 'image/png', 'image/gif'])]
+    private ?File $imageFile = null;
+    
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $imageName = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $imageSize = null;
 
     public function __construct()
     {
@@ -187,18 +198,6 @@ class Stage
         return $this;
     }
 
-    public function getLogo(): ?string
-    {
-        return $this->logo;
-    }
-
-    public function setLogo(string $logo): static
-    {
-        $this->logo = $logo;
-
-        return $this;
-    }
-
     public function getSlug(): ?string
     {
         return $this->slug;
@@ -207,6 +206,40 @@ class Stage
     public function setSlug(string $slug): static
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+    
+    public function getImageName(): ?string
+    {
+        return $this->imageName;
+    }
+
+    public function setImageName(string $imageName): static
+    {
+        $this->imageName = $imageName;
+
+        return $this;
+    }
+
+    public function getImageSize(): ?int
+    {
+        return $this->imageSize;
+    }
+
+    public function setImageSize(int $imageSize): static
+    {
+        $this->imageSize = $imageSize;
 
         return $this;
     }

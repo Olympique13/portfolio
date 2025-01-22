@@ -4,44 +4,53 @@
 {% endblock %}
 
 {% block body %}
-<div class="grid grid-cols-3 gap-4">
-    <div></div>
-    <h1 class="text-3xl font-bold text-center mb-20">Mes différents stages depuis le BTS :</h1>
-    <div></div>
-</div>
-<div class="grid grid-cols-3 gap-4">
-    <div></div>
-    <h1 class="text-nowrap text-xl text-center mb-20">Durants mes 2 années de BTS SIO, j'ai dû effectuer 2 stages pour développer <span class="text-green-700 font-bold underline"> mes compétences</span> et en <span class="text-green-700 font-bold underline"> acquérir d'avantages</span></h1>
-    <div></div>
-</div>
+	<div class="grid grid-cols-3 gap-4">
+		<div></div>
+		<h1 class="text-3xl font-bold text-center mb-20">Mes différents stages depuis le BTS :</h1>
+		<div></div>
+	</div>
+	<div class="grid grid-cols-3 gap-4">
+		<div></div>
+		<h1 class="text-nowrap text-xl text-center mb-20">Durants mes 2 années de BTS SIO, j'ai dû effectuer 2 stages pour développer
+			<span class="text-green-700 font-bold underline">
+				mes compétences</span>
+			et en
+			<span class="text-green-700 font-bold underline">
+				acquérir d'avantages</span>
+		</h1>
+		<div></div>
+	</div>
 
 
-    <div id="stages-container">
-        {% if stage|length > 0 %}
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 mt-8">
-                {% for stages in stage %}
-                    <div class="bg-white border border-gray-200 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow grid gap-x-14 gap-y-20 grid-cols-2 mb-20">
-                        <div class="mt-1 rounded-full p-2 w-fit flex justify-center">
-                            <img src="{{ stages.logo }}" class="rounded-3xl" alt="Photo Hamdaoui Rayan" sizes="(max-width: 800px) 100vw, 620px" width="520" height="424" decoding="async">
-                        </div>
-                        <div class="flex flex-column items-center justify-center flex-col">
-                        <a href="#">
-                            <h2 class="text-2xl font-bold mb-3 text-gray-800 hover:text-blue-600 transition-colors">{{ stages.entreprise }}</h2>
-                        </a>
-                        <p class="text-gray-600 mb-4">{{ stages.adresse }}</p>
-                            <span class="mb-8">Du {{ stages.debut|date('d/m/Y') }} au {{ stages.fin|date('d/m/y') }}</span>
-                        <a href="{{ path ('app_stage_show', {'slug' : stages.slug}) }}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition-colors">
-                            Voir le compte rendu
-                            <svg class="w-4 h-4 ml-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 14 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                            </svg>
-                        </a>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        {% else %}
-            <p class="text-center text-gray-700 text-lg mt-8">Il n'y a pour le moment aucun de stage disponible...</p>
-        {% endif %}
-    </div>
+	<div id="stages-container">
+		{% if stage|length > 0 %}
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 mt-8">
+				{% for stages in stage %}
+					<div class="bg-white border border-gray-200 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow grid gap-x-14 gap-y-20 grid-cols-2 mb-20">
+						<div class="mt-1 rounded-full p-2 w-fit flex justify-center">
+							<img src="images/stage/{{ stages.imageName }}" class="rounded-3xl" alt="Logo {{ stages.entreprise }}" sizes="(max-width: 800px) 100vw, 620px" width="520" height="424" decoding="async">
+						</div>
+						<div class="flex flex-column items-center justify-center flex-col">
+							<a href="#">
+								<h2 class="text-2xl font-bold mb-3 text-gray-800 hover:text-blue-600 transition-colors">{{ stages.entreprise }}</h2>
+							</a>
+							<p class="text-gray-600 mb-4">{{ stages.adresse }}</p>
+							<span class="mb-8">Du
+								{{ stages.debut|date('d/m/Y') }}
+								au
+								{{ stages.fin|date('d/m/y') }}</span>
+							<a href="{{ path ('app_stage_show', {'slug' : stages.slug}) }}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition-colors">
+								Voir le compte rendu
+								<svg class="w-4 h-4 ml-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 14 10">
+									<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+								</svg>
+							</a>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		{% else %}
+			<p class="text-center text-gray-700 text-lg mt-8">Il n'y a pour le moment aucun de stage disponible...</p>
+		{% endif %}
+	</div>
 {% endblock %}
