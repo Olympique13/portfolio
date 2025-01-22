@@ -6,9 +6,13 @@ use App\Repository\CompteRenduRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 #[ORM\Entity(repositoryClass: CompteRenduRepository::class)]
+#[Vich\Uploadable]
 class CompteRendu
 {
     #[ORM\Id]
@@ -29,6 +33,16 @@ class CompteRendu
     #[Gedmo\Slug(fields: ['titre'])]
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
+
+    #[Vich\UploadableField(mapping: 'CompteRendu', fileNameProperty: 'imageName', size: 'imageSize')]
+    #[Assert\File(maxSize: '20M', mimeTypes: ['image/jpeg', 'image/png', 'image/gif'])]
+    private ?File $imageFile = null;
+    
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $imageName = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $imageSize = null;
 
 
     public function getId(): ?int
@@ -80,6 +94,40 @@ class CompteRendu
     public function setSlug(string $slug): static
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+    
+    public function getImageName(): ?string
+    {
+        return $this->imageName;
+    }
+
+    public function setImageName(string $imageName): static
+    {
+        $this->imageName = $imageName;
+
+        return $this;
+    }
+
+    public function getImageSize(): ?int
+    {
+        return $this->imageSize;
+    }
+
+    public function setImageSize(int $imageSize): static
+    {
+        $this->imageSize = $imageSize;
 
         return $this;
     }

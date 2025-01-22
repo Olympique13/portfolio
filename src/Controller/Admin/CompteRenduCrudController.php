@@ -5,9 +5,11 @@ namespace App\Controller\Admin;
 use App\Entity\Stage;
 use App\Entity\CompteRendu;
 use Doctrine\ORM\EntityManagerInterface;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
@@ -45,6 +47,8 @@ class CompteRenduCrudController extends AbstractCrudController
                     return $entity->getStage()->getEntreprise();
                 }),
             TextEditorField::new('message'),
+            TextField::new('imageFile', 'Image')->setFormType(VichFileType::class)->onlyOnForms(),
+            ImageField::new('imageName', 'Image stage')->setBasePath('images/compteRendu')->onlyOnIndex(),
         ];
     }
 }
