@@ -32,7 +32,9 @@
 
 		{% endfor %}
 
-		<button id="buttonNext">Suivant</button>
+		{% if compteRendu[:4] %}
+			<button id="buttonNext">Suivant</button>
+		{% endif %}
 
 		{% for rendu in compteRendu [4:] %}
 			<main class="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900" id="renduNext" style="display: none">
