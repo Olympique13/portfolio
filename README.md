@@ -21,6 +21,10 @@ Rendez-vous sur votre invite de commande dans votre dossier `www/` et clonez le 
 git clone https://github.com/Olympique13/portfolioSymfony.git
 ```
 
+## Copier les fichiers vers votre environnement local
+```
+git pull origin main
+```
 
 ## Mettre à jour les packages, composants etc..
 
