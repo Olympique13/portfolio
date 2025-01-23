@@ -1,7 +1,7 @@
 {% extends "base.html.twig" %}
 
 {% block title %}Stage -
-	{{ stage.slug }}]
+	{{ stage.slug }}
 {% endblock %}
 
 {% block body %}
@@ -11,7 +11,7 @@
 	{% else %}
 		{% for rendu in compteRendu [0:4] %}
 			<main class="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900" id="renduPrev" style="display: block">
-				<div class="flex justify-between px-4 mx-auto max-w-screen-xl">
+				<div class="flex justify-between px-6 mx-auto max-w-screen-l">
 					<article class="mx-auto w-full format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
 						<header class="mb-16 lg:mb-6 not-format text-center">
 							<h1 class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">{{ rendu.titre }}</h1>
@@ -23,8 +23,8 @@
 							</div>
 						</section>
 					</article>
-					<div class="mt-1 rounded-full p-2 w-fit flex justify-center">
-						<img src="/images/compteRendu/{{ rendu.imageName }}" class="rounded-3xl" alt="Image annexe" sizes="(max-width: 800px) 100vw, 620px" width="520" height="424" decoding="async">
+					<div class="mt-1 rounded-full p-2 flex justify-center items-center">
+						<img src="/images/compteRendu/{{ rendu.imageName }}" class="rounded-3xl max-w-xl" alt="Image annexe">
 					</div>
 				</div>
 			</main>
