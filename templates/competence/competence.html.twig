@@ -1,0 +1,170 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Compétences{% endblock %}
+
+{% block body %}
+    <h1 class="text-4xl font-bold mb-8 text-center text-balance text-gray-800">Les compétences du BTS SIO, option SLAM</h1>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-gray-100 p-6 rounded-lg shadow-lg hover:shadow-xl transition cursor-pointer mb-10" onclick="openModal('modal1')">
+            <h2 class="text-xl font-semibold text-gray-700">Support et mise à disposition de services informatiques</h2>
+        </div>
+        
+        <div class="bg-gray-100 p-6 rounded-lg shadow-lg hover:shadow-xl transition cursor-pointer mb-10" onclick="openModal('modal2')">
+            <h2 class="text-xl font-semibold text-gray-700">Cybersécurité des services informatiques</h2>
+        </div>
+
+        <div class="bg-gray-100 p-6 rounded-lg shadow-lg hover:shadow-xl transition cursor-pointer mb-10" onclick="openModal('modal3')">
+            <h2 class="text-xl font-semibold text-gray-700">Exploitation des données</h2>
+        </div>
+
+        <div class="bg-gray-100 p-6 rounded-lg shadow-lg hover:shadow-xl transition cursor-pointer mb-10" onclick="openModal('modal4')">
+            <h2 class="text-xl font-semibold text-gray-700">Développement des applications</h2>
+        </div>
+
+        <div class="bg-gray-100 p-6 rounded-lg shadow-lg hover:shadow-xl transition cursor-pointer mb-10" onclick="openModal('modal5')">
+            <h2 class="text-xl font-semibold text-gray-700">Gestion des infrastructures</h2>
+        </div>
+
+        <div class="bg-gray-100 p-6 rounded-lg shadow-lg hover:shadow-xl transition cursor-pointer mb-10" onclick="openModal('modal6')">
+            <h2 class="text-xl font-semibold text-gray-700">Travail collaboratif et gestion de projet</h2>
+        </div>
+    </div>
+
+<!-- Modals -->
+<div id="modal1" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-11/12 md:w-1/2">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-700">Support et mise à disposition de services informatiques</h2>
+        <div class="mb-6">
+            <h3 class="text-xl font-medium mb-2 text-gray-600">✅ C1.1 – Gérer le patrimoine informatique</h3>
+            <ul class="list-disc list-inside pl-5 text-gray-500">
+                <li>Utilisation d’outils de gestion de versions (GitLab).</li>
+                <li>Mise en place d’un projet sur Git avec suivi des versions.</li>
+                <li>Gestion d’un serveur local (Laragon).</li>
+            </ul>
+        <h3 class="text-xl font-medium mb-2 text-gray-600">✅ C1.2 – Répondre aux incidents et aux demandes d'assistance et d'évolution</h3>
+        <ul class="list-disc list-inside pl-5 text-gray-500">
+            <li>Intervention sur un projet en production (ajout d'une section sur un site en ligne)</li>
+            <li>Analyse et correction de problèmes liés à l'affichage responsive</li>
+        </ul>
+        <h3 class="text-xl font-medium mb-2 text-gray-600">✅ C1.3 – Développer la présence en ligne de l'organisation</h3>
+        <ul class="list-disc list-inside pl-5 text-gray-500">
+            <li>Intégration d'un nouveau module sur un site qui existe (<a href="https://synergiefamily.fr">Synergie Family</a>)</li>
+            <li>Développement d'une application web complète (Big Mars)</li>
+        </ul>
+        </div>
+        <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition" onclick="closeModal('modal1')">Fermer</button>
+    </div>
+</div>
+
+<div id="modal2" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-11/12 md:w-1/2">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-700">Cybersécurité des services informatiques</h2>
+        <div class="mb-6">
+            <h3 class="text-xl font-medium mb-2 text-gray-600">✅ C2.2 – Protéger les données à caractère personnel</h3>
+            <ul class="list-disc list-inside pl-5 text-gray-500">
+                <li>Gestion des contraintes des entités avec assertions Symfony.</li>
+                <li>Utilisation de Gedmo pour la gestion des timestamps et l’intégrité des données.</li>
+            </ul>
+            <h3 class="text-xl font-medium mb-2 text-gray-600">✅ C2.3 – Préserver l'identité numérique de l'organiation</h3>
+            <ul class="list-disc list-inside pl-5 text-gray-500">
+                <li>Mise en place d'un système de hiérarchie des rôles dans le BackOffice</li>
+                <li>gestion des droits d'accès avec EasyAdmin</li>
+            </ul>
+        </div>
+        <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition" onclick="closeModal('modal2')">Fermer</button>
+    </div>
+</div>
+
+<div id="modal3" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-11/12 md:w-1/2">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-700">Exploitation des données</h2>
+        <div class="mb-6">
+            <h3 class="text-xl font-medium mb-2 text-gray-600">✅ C3.1 - Exploiter des données à des fin d'analyse</h3>
+            <ul class="list-disc list-inside pl-5 text-gray-500">
+                <li>Création et gestion d'une BDD pour la gestion des événements et des inscriptions (Big Mars)</li>
+            </ul>
+            <h3 class="text-xl font-medium mb-2 text-gray-600">✅ C3.2 - Gérer le cycle de vie des données</h3>
+            <ul class="list-disc list-inside pl-5 text-gray-500">
+                <li>Utilisation des bonnes pratiques Symfony pour la gestion des BDD (Doctrine, Gedmo)</li>
+                <li>Manipulation et formatage des données JS (Cleave.js)</li>
+            </ul>
+        </div>
+        <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition" onclick="closeModal('modal3')">Fermer</button>
+    </div>
+</div>
+
+<div id="modal4" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-11/12 md:w-1/2">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-700">Développement des applications</h2>
+        <div class="mb-6">
+            <h3 class="text-xl font-medium mb-2 text-gray-600">✅ C4.1 - Concevoir et développer une solution applicative</h3>
+            <ul class="list-disc list-inside pl-5 text-gray-500">
+                <li>Développement Full-Stack (BackOffice en Symfony et Front avec Tailwindcss)</li>
+                <li>Création et gestion des entités Symfony avec Doctrine</li>
+            </ul>
+            <h3 class="text-xl font-medium mb-2 text-gray-600">✅ C4.2 - Assurer la maintenance corrective ou évolutive d'une solution applicative</h3>
+            <ul class="list-disc list-inside pl-5 text-gray-500">
+                <li>Modification d'un site en production (<a href="https://synergiefamily.fr">Synergie Family</a>)</li>
+                <li>Correction de bugs d'affichage et ajustements responsive</li>
+            </ul>
+            <h3 class="text-xl font-medium mb-2 text-gray-600">✅ C4.3 - Gérer un projet informatique</h3>
+            <ul class="list-disc list-inside pl-5 text-gray-500">
+                <li>Participation à une réunion de mise au point avec l'équipe marketing</li>
+                <li>Définition d'une TODO List et respect des deadllines</li>
+                <li>Utilisation de GitLab, Monday et Notion pour la gestion de projet</li>
+            </ul>
+        </div>
+        <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition" onclick="closeModal('modal4')">Fermer</button>
+    </div>
+</div>
+
+<div id="modal5" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-11/12 md:w-1/2">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-700">Gestion des infrastructures</h2>
+        <div class="mb-6">
+            <h3 class="text-xl font-medium mb-2 text-gray-600">✅ C5.1 - Elaborer et mettre en oeuvre des plans de continuité et de reprise d'activité</h3>
+            <ul class="list-disc list-inside pl-5 text-gray-500">
+                <li>Utilisation de GitLab pour suivre l'évolution du projet et éviter la perte de code</li>
+            </ul>
+            <h3 class="text-xl font-medium mb-2 text-gray-600">✅ C5.2 - Exploiter les référentiels, normes et standards adoptés par le prestataire informatique</h3>
+            <ul class="list-disc list-inside pl-5 text-gray-500">
+                <li>Respect de la charte graphique définie par l'équipe marketing</li>
+                <li>Mise en place d'un environnement de développement local avec Laragon</li>
+            </ul>
+        </div>
+        <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition" onclick="closeModal('modal5')">Fermer</button>
+    </div>
+</div>
+
+<div id="modal6" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-11/12 md:w-1/2">
+        <h2 class="text-2xl font-semibold mb-4 text-gray-700">Travail collaboratif et gestion de projet</h2>
+        <div class="mb-6">
+            <h3 class="text-xl font-medium mb-2 text-gray-600">✅ C6.1 - Travailler en mode projet</h3>
+            <ul class="list-disc list-inside pl-5 text-gray-500">
+                <li>Collaboration avec une équipe (tuteur, équipe marketing, lead développeur)</li>
+                <li>Utilisation d'outils professionnels de gestion de projet (Monday, Notion, Slack)
+            </ul>
+            <h3 class="text-xl font-medium mb-2 text-gray-600">✅ C6.2 - Mettre en place son environnement d'apprentissage personnel</h3>
+            <ul class="list-disc list-inside pl-5 text-gray-500">
+                <li>Apprentissage en autonomie de AJAX, JQuery et Cleave.js pour optimiser les formulaires</li>
+                <li>Lecture de la documentation officielle de Symfony</li>
+            </ul>
+        </div>
+        <button class="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition" onclick="closeModal('modal6')">Fermer</button>
+    </div>
+</div>
+
+
+
+
+<script>
+    function openModal(modalId) {
+        document.getElementById(modalId).classList.remove('hidden');
+    }
+    function closeModal(modalId) {
+        document.getElementById(modalId).classList.add('hidden');
+    }
+</script>
+{% endblock %}

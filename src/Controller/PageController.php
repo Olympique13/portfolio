@@ -20,4 +20,10 @@ class PageController extends AbstractController
     {
         return $this->render('page/sio.html.twig', array());
     }
+
+    #[Route('/competences', name: 'app_competence')]
+    public function competence(): Response
+    {
+        return $this->render('competence/competence.html.twig', array());
+    }
 }
