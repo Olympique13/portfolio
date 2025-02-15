@@ -6,61 +6,63 @@
 
 {% block body %}
 	<div class="mx-auto px-8">
+
+		{# Présentation brève RESPONSIVE#}
 		<section id="accueilPhoto" class="pb-20">
-			<main class="grid lg:grid-cols-2 place-items-center pb-8 md:pt-12 md:pb-24">
-				<div class="py-6 md:order-1 hidden md:block">
+			<main class="grid lg:grid-cols-2 place-items-center md:pt-12">
+				<div class="hidden md:py-6 md:order-1 md:flex md:w-72">
 					<picture class="flex h-full">
 						<img src="images/photoface/moi.webp" class="rounded-3xl" alt="Photo Hamdaoui Rayan" sizes="(max-width: 800px) 100vw, 620px" width="520" height="424" decoding="async">
 					</picture>
 				</div>
-				<div>
-					<p class="text-3xl mt-4 text-slate-600 max-w-xl">Bonjour, je m'appelle
+				<div class="text-balance">
+					<div class="grid justify-items-start">
+						<h2 class="text-xl md:text-2xl mt-4 text-slate-600 max-w-xl">Bonjour, je m'appelle
+						</h2>
+						<h1 class="text-3xl font-bold lg:tracking-tight xl:tracking-tighter">
+							Hamdaoui Rayan
+						</h1>
+					</div>
+					<p class="text-md md:text-lg mt-4 text-slate-600 max-w-xl">
+						et bienvenue dans mon espace personnel, mon portfolio !
 					</p>
-					<h1 class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
-						Hamdaoui Rayan
-					</h1>
-					<p class="text-lg mt-4 text-slate-600 max-w-xl">
-						et bienvenue dans mon espace public, mon portfolio !
-					</p>
-					<div class="mt-6 flex flex-col justify-around sm:flex-row">
-						<span class="sm:ml-3">
+					<div class="mt-6 md:flex md:justify-around block">
 							<button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
 								<a href="#a-propos">Qui suis-je ?</a>
 							</button>
-						</span>
-						<span class="sm:ml-3">
 							<button type="button" class="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
 								<a href="#parcours">Voir mon parcours</a>
 							</button>
-						</span>
 					</div>
 				</div>
 			</main>
-			<div class="flex justify-center items-center py-24">
+
+			<div class="flex justify-center items-center mt-12 mb-12">
 				<hr class="absolute w-4/5">
 				<div class="flex space-x-6 bg-white rounded-full shadow-md px-6 py-6 z-40 ">
 					<div class="text-center">
-						<p class="font-semibold text-3xl text-gray-900">Établissement actuel</p>
-						<p class="text-2xl text-gray-500">Charles Peguy</p>
+						<h4 class="text-md font-semibold md:text-2xl text-gray-900">École</h4>
+						<p class="text-sm md:text-lg text-gray-500">Charles Peguy</p>
 					</div>
 					<div class="border-l border-gray-300"></div>
 					<div class="text-center">
-						<p class="font-semibold text-3xl text-gray-900">Études en cours</p>
-						<p class="text-2xl text-gray-500">2TS SIO</p>
+						<h4 class="text-md font-semibold md:text-2xl text-gray-900">Formation</h4>
+						<p class="text-sm text-gray-500 md:text-lg">2TS SIO</p>
 					</div>
 				</div>
 			</div>
 		</section>
-		{#		A propos#}
-		<section id="a-propos" class="my-7">
-			<p class="flex justify-end text-3xl font-bold text-gray-700 pb-6">Et si on se penchait plus sur moi ?</p>
-			<div class="gap-8 flex pb-20">
-				<div class="w-full"></div>
+
+		{# A propos RESPONSIVE#}
+		<section id="a-propos" class="md:my-7 mb-12">
+			<h4 class="text-lg text-balance md:flex md:justify-end md:text-2xl font-bold text-gray-700 pb-6">Et si on se penchait plus sur moi ?</h4>
+			<div class="md:gap-8 md:pb-20 flex gap-0">
+				<div class="md:w-full w-72"></div>
 				<div class="w-full">
-					<h2 class="text-4xl font-semibold italic text-gray-800">
+					<h2 class="md:text-2xl md:text-end text-xl font-semibold italic text-gray-800">
 						HAMDAOUI Rayan
 					</h2>
-					<div class="text-lg text-center italic mt-4 text-gray-600">
+					<div class="text-sm md:text-lg md:text-center md:mt-4 text-balance italic text-gray-600">
 						<p class="mb-6">
 							Jeune étudiant passionné par l'informatique et le développement web, je souhaite utiliser mes compétences afin d'en faire usage dans le monde professionnel.
 						</p>
@@ -74,18 +76,16 @@
 				</div>
 			</div>
 		</section>
-		{#		Parcours#}
-		<section id="parcours" class="my-7">
-			<p class="flex justify-start text-3xl font-bold text-gray-700 pb-6">Comment j'en suis arrivé là ...</p>
-			<div class="grid gap-x-2 gap-y-10 grid-cols-2 pb-20">
+
+		{# Parcours RESPONSIVE#}
+		<section id="parcours" class="md:my-7 my:10">
+			<h4 class="text-lg text-balance md:flex md:justify-start md:text-2xl font-bold text-gray-700 pb-6">Comment j'en suis arrivé là ...</h4>
+			<div class="grid gap-x-2 gap-y-10 grid-cols-2 md:pb-20">
 				<div class="w-full">
-					<div class="flex gap-4 items-start">
-						<div class="mt-1 rounded-full p-2 w-1/3">
-							<img src="images/ecole/logoDonBosco.png" class="rounded-3xl" alt="Photo Hamdaoui Rayan" sizes="(max-width: 800px) 100vw, 620px" width="520" height="424" decoding="async">
-						</div>
+					<div class="md:flex md:gap-4 md:items-start">
 						<div>
-							<h3 class="font-semibold flex justify-center pb-6 text-2xl">Lycée Polyvalent Don Bosco - 2020/2023</h3>
-							<div class="text-slate-500 mt-2 leading-relaxed flex flex-col items-center">
+							<h2 class="md:text-xl md:text-start md:text-pretty text-xl font-semibold italic text-gray-800">Lycée Polyvalent Don Bosco - 2020/2023</h2>
+							<div class="text-slate-500 mt-2 leading-relaxed flex flex-col items-center text-balance text-center">
 								<p>Seconde générale</p>
 								<p>⬇️</p>
 								<p>Première STI2D</p>
@@ -97,47 +97,55 @@
 						</div>
 					</div>
 				</div>
-				<div class="w-full"></div>
-				<div class="w-full"></div>
+				<div class="w-full flex items-center">
+					<div class="mt-1 rounded-full p-2 w-fit">
+						<img src="images/ecole/logoDonBosco.png" class="rounded-3xl" alt="Photo don bosco" decoding="async">
+					</div>
+				</div>
+				<div class="w-full flex items-center">
+					<div class="mt-1 rounded-full p-2 md:w-8/12 w-full">
+						<img src="images/ecole/peguy.webp" class="rounded-3xl" alt="Photo Charles Peguy" decoding="async">
+					</div>
+				</div>
 				<div class="w-full">
 					<div class="flex gap-4 items-start">
 						<div>
-							<h3 class="font-semibold flex justify-center text-center pb-6 text-2xl">Lycée et Enseignement Sup., Charles Peguy</h3>
-							<div class="text-slate-500 mt-2 leading-relaxed flex flex-col items-center text-center">
+							<h3 class="font-semibold flex justify-center pb-6 md:text-xl text-balance text-lg">Lycée et Enseignement Supérieur, Charles Peguy</h3>
+							<div class="text-slate-500 mt-2 leading-relaxed flex flex-col items-center text-balance text-center">
 								<p>1TS SIO</p>
-								<p class="text-sm">(avec une orientation vers l'option Solutions Logicielles et Applications Métier)</p>
-							</p>
-							<p>⬇️</p>
-							<p>2TS SIO (Option SLAM), les différents stages m'ont confirmé mes choix d'orientations</p>
-							<p>⬇️</p>
-							<p>? Licence pro ?</p>
+								<p>⬇️</p>
+								<p>2TS SIO (Option SLAM)</p>
+								<p>⬇️</p>
+								<p>? Licence pro ?</p>
 						</div>
-					</div>
-					<div class="mt-1 rounded-full p-2 w-1/3">
-						<img src="images/ecole/peguy.webp" class="rounded-3xl" alt="Photo Hamdaoui Rayan" sizes="(max-width: 800px) 100vw, 620px" width="520" height="424" decoding="async">
 					</div>
 				</div>
 			</div>
-		</div>
-	</section>
-	{#		Découvrez le BTS SIO#}
-	<div class="flex justify-center items-center py-24">
-		<hr class="absolute w-4/5">
-		<div class="flex space-x-6 bg-white rounded-full shadow-md px-6 py-6 z-40 ">
-			<div class="text-center">
-				<a href="{{ path ('app_sio') }}" class="text-2xl font-semibold text-blue-700">Découvrez le BTS SIO</a>
+		</section>
+
+		{# Découvrez le BTS SIO RESPONSIVE#}
+		<div class="flex justify-center items-center py-12">
+			<hr class="absolute w-4/5">
+			<div class="flex space-x-6 bg-white rounded-full shadow-md px-6 py-6 z-40 ">
+				<div class="text-center">
+					<a href="{{ path ('app_sio') }}" class="md:text-2xl text-lg font-semibold text-blue-700">Découvrez le BTS SIO</a>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="mt-18">
-		<h2 class="text-center text-slate-500">Framework Symfony, tailwindcss, à faire pour finir la page</h2>
-		<div class="flex gap-8 md:gap-20 items-center justify-center mt-10 flex-wrap">
-			<svg width="1em" height="1em" viewbox="0 0 24 24" class="size-8 md:size-16" data-icon="simple-icons:tailwindcss">
-				<symbol id="ai:simple-icons:tailwindcss">
-					<path fill="currentColor" d="M12.001 4.8q-4.8 0-6 4.8q1.8-2.4 4.2-1.8c.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12q4.8 0 6-4.8q-1.8 2.4-4.2 1.8c-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8m-6 7.2q-4.8 0-6 4.8q1.8-2.4 4.2-1.8c.913.228 1.565.89 2.288 1.624c1.177 1.194 2.538 2.576 5.512 2.576q4.8 0 6-4.8q-1.8 2.4-4.2 1.8c-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12"></path>
-				</symbol>
-				<use xlink:href="#ai:simple-icons:tailwindcss"></use>
-			</svg>
+
+		{# Suite framework #}
+		<div class="mt-18">
+			<h2 class="text-center text-slate-500">Framework Symfony, tailwindcss, à faire pour finir la page</h2>
+			<div class="flex gap-8 md:gap-20 items-center justify-center mt-10 flex-wrap">
+				<svg width="1em" height="1em" viewbox="0 0 24 24" class="size-8 md:size-16" data-icon="simple-icons:tailwindcss">
+					<symbol id="ai:simple-icons:tailwindcss">
+						<path fill="currentColor" d="M12.001 4.8q-4.8 0-6 4.8q1.8-2.4 4.2-1.8c.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12q4.8 0 6-4.8q-1.8 2.4-4.2 1.8c-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8m-6 7.2q-4.8 0-6 4.8q1.8-2.4 4.2-1.8c.913.228 1.565.89 2.288 1.624c1.177 1.194 2.538 2.576 5.512 2.576q4.8 0 6-4.8q-1.8 2.4-4.2 1.8c-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12"></path>
+					</symbol>
+					<use xlink:href="#ai:simple-icons:tailwindcss"></use>
+				</svg>
+			</div>
 		</div>
+
+		
 	</div>
-</div>{% endblock %}
+{% endblock %}
