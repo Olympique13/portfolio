@@ -40,18 +40,5 @@ document.addEventListener("DOMContentLoaded", function () {
                 renduNext.scrollIntoView({behavior: "smooth", block: "start"});
             });
         }
-
-        window.addEventListener('scroll', function() {
-			var scrollButton = document.getElementById('scrollButton');
-			if (window.scrollY > 200) {
-				scrollButton.classList.remove('hidden');
-			} else {
-				scrollButton.classList.add('hidden');
-			}
-		});
         
 });
-
-function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
