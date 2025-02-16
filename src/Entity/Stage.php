@@ -53,7 +53,7 @@ class Stage
     private ?string $slug = null;
 
     #[Vich\UploadableField(mapping: 'Stage', fileNameProperty: 'imageName', size: 'imageSize')]
-    #[Assert\File(maxSize: '20M', mimeTypes: ['image/jpeg', 'image/png', 'image/gif'])]
+    #[Assert\File(maxSize: '20M', mimeTypes: ['image/jpeg', 'image/png', 'image/gif', 'image/jpg'])]
     private ?File $imageFile = null;
     
     #[ORM\Column(length: 255, nullable: true)]
@@ -61,6 +61,9 @@ class Stage
 
     #[ORM\Column(nullable: true)]
     private ?int $imageSize = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $updatedAt = null;
 
     public function __construct()
     {
@@ -213,6 +216,10 @@ class Stage
     public function setImageFile(?File $imageFile = null): void
     {
         $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
     }
 
     public function getImageFile(): ?File
@@ -225,7 +232,7 @@ class Stage
         return $this->imageName;
     }
 
-    public function setImageName(string $imageName): static
+    public function setImageName(?string $imageName): static
     {
         $this->imageName = $imageName;
 
@@ -237,10 +244,15 @@ class Stage
         return $this->imageSize;
     }
 
-    public function setImageSize(int $imageSize): static
+    public function setImageSize(?int $imageSize): static
     {
         $this->imageSize = $imageSize;
 
         return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeImmutable
+    {
+        return $this->updatedAt;
     }
 }
