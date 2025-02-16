@@ -1,7 +1,6 @@
 import './js/accueil'
 
 import './styles/app.css';
-import './styles/compteRendu.css'
 
 
 window.addEventListener('scroll', function() {

@@ -46,7 +46,12 @@ class CompteRenduCrudController extends AbstractCrudController
                 ->formatValue(function ($value, $entity) {
                     return $entity->getStage()->getEntreprise();
                 }),
-            TextEditorField::new('message'),
+            TextEditorField::new('message')->setTrixEditorConfig([
+                'blockAttributes' => [
+                    'default' => ['tagName' => 'p'],
+                    'heading1' => ['tagName' => 'h2'],
+                ]
+            ]),
             TextField::new('imageFile', 'Image')->setFormType(VichFileType::class)->onlyOnForms(),
             ImageField::new('imageName', 'Image stage')->setBasePath('images/compteRendu')->onlyOnIndex(),
         ];

@@ -34,7 +34,7 @@ class CompteRendu
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
 
-    #[Vich\UploadableField(mapping: 'CompteRendu', fileNameProperty: 'imageName', size: 'imageSize')]
+    #[Vich\UploadableField(mapping: 'compte_rendu_image', fileNameProperty: 'imageName', size: 'imageSize')]
     #[Assert\File(maxSize: '20M', mimeTypes: ['image/jpeg', 'image/png', 'image/gif'])]
     private ?File $imageFile = null;
     
@@ -101,6 +101,16 @@ class CompteRendu
     public function setImageFile(?File $imageFile = null): void
     {
         $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->imageName = $imageFile->getFilename();
+            $this->imageSize = $imageFile->getSize();
+        } else {
+            $this->imageName = null;
+            $this->imageSize = null;
+        }
     }
 
     public function getImageFile(): ?File
@@ -113,7 +123,7 @@ class CompteRendu
         return $this->imageName;
     }
 
-    public function setImageName(string $imageName): static
+    public function setImageName(?string $imageName): static
     {
         $this->imageName = $imageName;
 
@@ -125,7 +135,7 @@ class CompteRendu
         return $this->imageSize;
     }
 
-    public function setImageSize(int $imageSize): static
+    public function setImageSize(?int $imageSize): static
     {
         $this->imageSize = $imageSize;
 
