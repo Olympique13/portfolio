@@ -14,3 +14,12 @@ window.addEventListener('scroll', function() {
 document.getElementById('scrollButton').addEventListener('click', function() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const button = document.querySelector('[data-collapse-toggle="navbar-default"]');
+    const navbar = document.getElementById('navbar-default');
+    
+    button.addEventListener('click', function () {
+    navbar.classList.toggle('hidden');
+    });
+    });

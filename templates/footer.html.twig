@@ -1,10 +1,20 @@
 <footer class="text-center p-6 mt-20 bg-gray-900 text-white">
-	<ol class="list-none p-0 flex justify-center space-x-4">
-		<li>
-			<a href="{{ path('app_accueil') }}" class="text-blue-400 hover:text-blue-300 transition duration-300 ease-in-out transform hover:scale-110 hover:rotate-3">Accueil</a>
-		</li>
-		<li>
-			<a href="{{ path ('app_stage') }}" class="text-blue-400 hover:text-blue-300 transition duration-300 ease-in-out transform hover:scale-110 hover:rotate-3">Mes Stages</a>
-		</li>
-	</ol>
+	<div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+		<div class="block w-auto" id="navbar-default">
+			<ul class="font-medium flex flex-row space-x-8 rtl:space-x-reverse">
+				<li>
+					<a href="{{ path('app_accueil') }}" class="block py-2 px-3 rounded {{ app.request.get('_route') == 'app_accueil' ? 'text-white bg-blue-700 md:bg-transparent' : 'text-gray-400 md:hover:text-blue-700 ' }}" aria-current="page">Accueil</a>
+				</li>
+				<li>
+					<a href="{{ path('app_sio') }}" class="block py-2 px-3 rounded {{ app.request.get('_route') == 'app_sio' ? 'text-white bg-blue-700 md:bg-transparent' : 'text-gray-400 md:hover:text-blue-700' }}">BTS SIO</a>
+				</li>
+				<li>
+					<a href="{{ path('app_stage') }}" class="block py-2 px-3 rounded {{ app.request.get('_route') in ['app_stage', 'app_info_stage', 'app_stage_show'] ? 'text-white bg-blue-700 md:bg-transparent' : 'text-gray-400 md:hover:text-blue-700' }}">Mes Stages</a>
+				</li>
+				<li>
+					<a href="{{ path('app_competence') }}" class="block py-2 px-3 rounded {{ app.request.get('_route') == 'app_competence' ? 'text-white bg-blue-700 md:bg-transparent' : 'text-gray-400 md:hover:text-blue-700' }}">Compétences</a>
+				</li>
+			</ul>
+		</div>
+	</div>
 </footer>
