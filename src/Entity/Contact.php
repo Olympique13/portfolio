@@ -18,26 +18,31 @@ class Contact
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Le nom ne peut pas être vide')]
     private ?string $nom = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Le prénom ne peut pas être vide')]
     private ?string $prenom = null;
 
     #[ORM\Column(length: 255)]
     #[Assert\Email]
+    #[Assert\NotBlank(message: 'Votre adresse mail ne peut pas être vide')]
     private ?string $email = null;
 
     #[ORM\Column(length: 50)]
     #[Assert\Length(
         min: 5
     )]
+    #[Assert\NotBlank(message: 'L\'objet du mail ne peut pas être vide')]
     private ?string $sujet = null;
 
     #[ORM\Column(type: Types::TEXT, length: 255)]
     #[Assert\Length(
-        min: 30,
+        min: 10,
         max: 255
     )]
+    #[Assert\NotBlank(message: 'Le contenue du mail ne peut pas être vide')]
     private ?string $message = null;
 
     #[Gedmo\Timestampable(on: 'create')]

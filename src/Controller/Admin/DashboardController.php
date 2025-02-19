@@ -4,7 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\User;
 use App\Entity\Stage;
-use App\Entity\Article;
+use App\Entity\Contact;
 use App\Entity\CompteRendu;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -30,7 +30,7 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Administration du blog')
+            ->setTitle('Administration du portfolio')
             ->setTextDirection('ltr');
     }
 
@@ -39,6 +39,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToDashboard('Accueil', 'fa fa-home');
         yield MenuItem::linkToCrud('Stage', 'fas fa-circle-info', Stage::class);
         yield MenuItem::linkToCrud('CompteRendu', 'fas fa-newspaper', CompteRendu::class);
+        yield MenuItem::linkToCrud('Contact', 'fas fa-address-book', Contact::class);
         yield MenuItem::linkToCrud('Utilisateur', 'fas fa-user', User::class);
 
     }

@@ -3,16 +3,19 @@
 		<div class="block w-auto" id="navbar-default">
 			<ul class="font-medium flex flex-row space-x-8 rtl:space-x-reverse">
 				<li>
-					<a href="{{ path('app_accueil') }}" class="block py-2 px-3 rounded {{ app.request.get('_route') == 'app_accueil' ? 'text-white bg-blue-700 md:bg-transparent' : 'text-gray-400 md:hover:text-blue-700 ' }}" aria-current="page">Accueil</a>
+					<a href="{{ path('app_accueil') }}" class="block py-2 px-3 rounded text-gray-400 hover:text-blue-700" aria-current="page">Accueil</a>
 				</li>
 				<li>
-					<a href="{{ path('app_sio') }}" class="block py-2 px-3 rounded {{ app.request.get('_route') == 'app_sio' ? 'text-white bg-blue-700 md:bg-transparent' : 'text-gray-400 md:hover:text-blue-700' }}">BTS SIO</a>
+					<a href="{{ path('app_sio') }}" class="block py-2 px-3 rounded text-gray-400 hover:text-blue-700">BTS SIO</a>
 				</li>
 				<li>
-					<a href="{{ path('app_stage') }}" class="block py-2 px-3 rounded {{ app.request.get('_route') in ['app_stage', 'app_info_stage', 'app_stage_show'] ? 'text-white bg-blue-700 md:bg-transparent' : 'text-gray-400 md:hover:text-blue-700' }}">Mes Stages</a>
+					<a href="{{ path('app_stage') }}" class="block py-2 px-3 rounded text-gray-400 hover:text-blue-700">Mes Stages</a>
 				</li>
 				<li>
-					<a href="{{ path('app_competence') }}" class="block py-2 px-3 rounded {{ app.request.get('_route') == 'app_competence' ? 'text-white bg-blue-700 md:bg-transparent' : 'text-gray-400 md:hover:text-blue-700' }}">Compétences</a>
+					<a href="{{ path('app_competence') }}" class="block py-2 px-3 rounded text-gray-400 hover:text-blue-700' }}">Compétences</a>
+				</li>
+				<li>
+					<a href="{{ path('app_contact') }}" class="block py-2 px-3 rounded text-gray-400 hover:text-blue-700">Me contacter</a>
 				</li>
 			</ul>
 		</div>
