@@ -1,0 +1,44 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Portfolio - Veille Technologique{% endblock %}
+
+{% block body %}
+<div class="mx-auto px-8">
+    {# Introduction à la veille technologique #}
+    <section class="py-12">
+        <h1 class="text-3xl font-bold text-gray-800 text-center">Ma Veille Technologique</h1>
+        <p class="text-lg text-gray-600 text-center mt-4 max-w-2xl mx-auto">
+            Découvrez ma veille technologique autour du framework Symfony : dernières tendances, nouvelles fonctionnalités et meilleures pratiques.
+        </p>
+    </section>
+
+    {# Sources de veille technologique #}
+    <section class="py-12">
+        <h2 class="text-2xl font-semibold text-gray-700 mb-6">Sources principales</h2>
+        <ul class="list-disc pl-6 text-lg text-gray-600">
+            <li><a href="https://symfony.com/blog" class="text-blue-600 hover:underline">Symfony Blog</a></li>
+            <li><a href="https://packagist.org/explore/" class="text-blue-600 hover:underline">Packagist</a> (nouveaux bundles)</li>
+            <li><a href="https://twitter.com/symfony" class="text-blue-600 hover:underline">X (anciennement Twitter) Symfony</a></li>
+        </ul>
+    </section>
+
+    {# Dernières tendances Symfony #}
+    <section class="py-12">
+        <h2 class="text-2xl font-semibold text-gray-700 mb-6">Dernières tendances</h2>
+        <div class="grid gap-8 md:grid-cols-2">
+            <div class="bg-white shadow-lg rounded-xl p-6">
+                <h3 class="text-xl font-semibold text-gray-800">Symfony 7 : Nouveautés</h3>
+                <p class="text-gray-600 mt-2">Symfony 7 apporte des améliorations de performances et de nouvelles fonctionnalités intéressantes...</p>
+                <a href="#" class="text-blue-600 hover:underline mt-4 block">En savoir plus</a>
+            </div>
+            <div class="bg-white shadow-lg rounded-xl p-6">
+                <h3 class="text-xl font-semibold text-gray-800">Meilleures pratiques en 2025</h3>
+                <p class="text-gray-600 mt-2">Découvrez les nouvelles recommandations pour structurer vos projets Symfony efficacement...</p>
+                <a href="#" class="text-blue-600 hover:underline mt-4 block">Lire l'article</a>
+            </div>
+        </div>
+    </section>
+
+
+</div>
+{% endblock %}
