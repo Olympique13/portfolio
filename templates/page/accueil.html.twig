@@ -3,12 +3,16 @@
 {% block title %}Portfolio - Accueil
 {% endblock %}
 
+{% block js_css_custom %}
+	{{ encore_entry_link_tags('homepage') }}
+{% endblock %}
+
 {% block body %}
 	<div class="mx-auto px-8">
 
-		{# Présentation brève RESPONSIVE#}
+		{# Présentation brève RESPONSIVE & animé#}
 		<section id="accueilPhoto" class="pb-20" data-aos-id-presentation>
-			<main class="grid lg:grid-cols-2 place-items-center md:pt-12">
+			<main class="grid lg:grid-cols-2 place-items-center">
 				<div class="hidden md:py-6 md:order-1 md:flex md:w-72" data-aos="fade-down" data-aos-anchor="[data-aos-id-testimonial]">
 					<picture class="flex h-full">
 						<img src="images/photoface/moi.webp" class="rounded-3xl" alt="Photo Hamdaoui Rayan" sizes="(max-width: 800px) 100vw, 620px" width="520" height="424" decoding="async">
@@ -36,32 +40,32 @@
 				</div>
 			</main>
 
-			<div class="flex justify-center items-center mt-12 mb-12">
-				<hr class="absolute w-4/5">
-				<div class="flex space-x-6 bg-white rounded-full shadow-md px-6 py-6 z-40 ">
+			<div class="flex justify-center items-center mb-12 formation">
+				<hr class="absolute w-4/5 hr-style">
+				<div class="flex space-x-6 bg-gray-200 rounded-full shadow-md px-6 py-6 z-40" data-aos-anchor="[data-aos-id-formation]" data-aos-id-formation>
 					<div class="text-center">
-						<h4 class="text-md font-semibold md:text-2xl text-gray-900">École</h4>
-						<p class="text-sm md:text-lg text-gray-500">Charles Peguy</p>
+						<h4 class="text-md font-semibold md:text-2xl text-gray-900" data-aos="fade-right" data-aos-anchor="[data-aos-id-formation]" data-aos-delay="300">École</h4>
+						<p class="text-sm md:text-lg text-gray-500" data-aos="fade-right" data-aos-anchor="[data-aos-id-formation]" data-aos-delay="300">Charles Peguy</p>
 					</div>
 					<div class="border-l border-gray-300"></div>
 					<div class="text-center">
-						<h4 class="text-md font-semibold md:text-2xl text-gray-900">Formation</h4>
-						<p class="text-sm text-gray-500 md:text-lg">2TS SIO</p>
+						<h4 class="text-md font-semibold md:text-2xl text-gray-900" data-aos="fade-left" data-aos-anchor="[data-aos-id-formation]" data-aos-delay="300">Formation</h4>
+						<p class="text-sm text-gray-500 md:text-lg" data-aos="fade-right" data-aos-anchor="[data-aos-id-formation]" data-aos-delay="300">2TS SIO</p>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		{# A propos RESPONSIVE#}
-		<section id="a-propos" class="md:my-7 mb-12">
-			<h4 class="text-lg text-balance md:flex md:justify-end md:text-2xl font-bold text-gray-700 pb-6">Et si on se penchait plus sur moi ?</h4>
+		{# A propos RESPONSIVE & animé#}
+		<section id="a-propos" class="md:my-7 mb-12" data-aos-id-about>
+			<h4 class="text-lg text-balance md:flex md:justify-end md:text-2xl font-bold text-gray-700 pb-6" data-aos="fade-up" data-aos-anchor="[data-aos-id-about]" data-aos-delay="200">Et si on se penchait plus sur moi ?</h4>
 			<div class="md:gap-8 md:pb-20 flex gap-0">
 				<div class="md:w-full w-72"></div>
 				<div class="w-full">
-					<h2 class="md:text-2xl md:text-end text-xl font-semibold italic text-gray-800">
+					<h2 class="md:text-2xl md:text-end text-xl font-semibold italic text-gray-800" data-aos="fade-up" data-aos-anchor="[data-aos-id-about]" data-aos-delay="300">
 						HAMDAOUI Rayan
 					</h2>
-					<div class="text-sm md:text-lg md:text-center md:mt-4 text-balance italic text-gray-600">
+					<div class="text-sm md:text-lg md:text-center md:mt-4 text-balance italic text-gray-600" data-aos="fade-up" data-aos-anchor="[data-aos-id-about]" data-aos-delay="400">
 						<p class="mb-6">
 							Jeune étudiant passionné par l'informatique et le développement web, je souhaite utiliser mes compétences afin d'en faire usage dans le monde professionnel.
 						</p>
@@ -76,15 +80,15 @@
 			</div>
 		</section>
 
-		{# Parcours RESPONSIVE#}
-		<section id="parcours" class="md:my-7 my:10">
-			<h4 class="text-lg text-balance md:flex md:justify-start md:text-2xl font-bold text-gray-700 pb-6">Comment j'en suis arrivé là ...</h4>
-			<div class="grid gap-x-2 gap-y-10 grid-cols-2 md:pb-20">
-				<div class="w-full">
+		{# Parcours RESPONSIVE & animé#}
+		<section id="parcours" class="md:my-7 my:10" data-aos-id-parcours>
+			<h4 class="text-lg text-balance md:flex md:justify-start md:text-2xl font-bold text-gray-700 pb-6" data-aos="fade-up" data-aos-delay="200" data-aos-anchor="[data-aos-id-parcours]">Comment j'en suis arrivé là ...</h4>
+			<div class="grid gap-x-2 gap-y-10 grid-cols-2 md:pb-20 justify-items-center">
+				<div class="w-full flex items-center">
 					<div class="md:flex md:gap-4 md:items-start">
 						<div>
-							<h2 class="md:text-xl md:text-start md:text-pretty text-xl font-semibold italic text-gray-800">Lycée Polyvalent Don Bosco - 2020/2023</h2>
-							<div class="text-slate-500 mt-2 leading-relaxed flex flex-col items-center text-balance text-center">
+							<h2 class="md:text-xl md:text-start md:text-pretty text-xl font-semibold italic text-gray-800" data-aos="fade-up" data-aos-delay="300" data-aos-anchor="[data-aos-id-parcours]">Lycée Polyvalent Don Bosco - 2020/2023</h2>
+							<div class="text-slate-500 mt-2 leading-relaxed flex flex-col items-center text-balance text-center" data-aos="fade-up" data-aos-delay="400" data-aos-anchor="[data-aos-id-parcours]">
 								<p>Seconde générale</p>
 								<p>⬇️</p>
 								<p>Première STI2D</p>
@@ -96,21 +100,21 @@
 						</div>
 					</div>
 				</div>
-				<div class="w-full flex items-center">
-					<div class="mt-1 rounded-full p-2 w-fit">
+				<div class="w-60 flex items-center">
+					<div class="mt-1 rounded-full p-2 w-fit" data-aos="fade-left" data-aos-delay="400" data-aos-anchor="[data-aos-id-parcours]">
 						<img src="images/ecole/logoDonBosco.png" class="rounded-3xl" alt="Photo don bosco" decoding="async">
 					</div>
 				</div>
-				<div class="w-full flex items-center">
-					<div class="mt-1 rounded-full p-2 md:w-8/12 w-full">
+				<div class="w-60 flex items-center">
+					<div class="mt-1 rounded-full p-2 md:w-8/12 w-full" data-aos="fade-right" data-aos-delay="600" data-aos-anchor="[data-aos-id-parcours]">
 						<img src="images/ecole/peguy.webp" class="rounded-3xl" alt="Photo Charles Peguy" decoding="async">
 					</div>
 				</div>
-				<div class="w-full">
+				<div class="w-full flex items-center">
 					<div class="flex gap-4 items-start">
 						<div>
-							<h3 class="font-semibold flex justify-center pb-6 md:text-xl text-balance text-lg">Lycée et Enseignement Supérieur, Charles Peguy</h3>
-							<div class="text-slate-500 mt-2 leading-relaxed flex flex-col items-center text-balance text-center">
+							<h3 class="font-semibold flex justify-center pb-6 md:text-xl text-balance text-lg" data-aos="fade-up" data-aos-delay="300" data-aos-anchor="[data-aos-id-parcours]">Lycée et Enseignement Supérieur, Charles Peguy</h3>
+							<div class="text-slate-500 mt-2 leading-relaxed flex flex-col items-center text-balance text-center" data-aos="fade-up" data-aos-delay="400" data-aos-anchor="[data-aos-id-parcours]">
 								<p>1TS SIO</p>
 								<p>⬇️</p>
 								<p>2TS SIO (Option SLAM)</p>
@@ -122,10 +126,10 @@
 			</div>
 		</section>
 
-		{# Découvrez le BTS SIO RESPONSIVE#}
-		<div class="flex justify-center items-center py-12">
-			<hr class="absolute w-4/5">
-			<div class="flex space-x-6 bg-white rounded-full shadow-md px-6 py-6 z-40 ">
+		{# Découvrez le BTS SIO RESPONSIVE & animé#}
+		<div class="flex justify-center items-center py-12 formation">
+			<hr class="absolute w-4/5 hr-style">
+			<div class="flex space-x-6 bg-gray-200 rounded-full shadow-md px-6 py-6 z-40 ">
 				<div class="text-center">
 					<a href="{{ path ('app_sio') }}" class="md:text-2xl text-lg font-semibold text-blue-700">Découvrez le BTS SIO</a>
 				</div>
