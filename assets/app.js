@@ -1,5 +1,5 @@
-import './js/accueil'
-import './js/aos'
+import './js/accueil.js'
+import './js/aos.js'
 
 import './styles/app.css';
 
