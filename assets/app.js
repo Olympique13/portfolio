@@ -2,6 +2,7 @@ import './js/accueil.js'
 import './js/aos.js'
 
 import './styles/app.css';
+import './styles/competence.css'
 
 
 window.addEventListener('scroll', function() {
@@ -23,4 +24,4 @@ document.addEventListener('DOMContentLoaded', function () {
     button.addEventListener('click', function () {
     navbar.classList.toggle('hidden');
     });
-    });
+});
