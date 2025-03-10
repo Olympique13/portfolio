@@ -23,5 +23,3 @@ dependencies:
   php:
     ext-pdo: true
     ext-mysqli: true
-
-# No need to declare MySQL here, Platform.sh does it automatically.
