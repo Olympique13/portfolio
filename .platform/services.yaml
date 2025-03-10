@@ -1,0 +1,4 @@
+services:
+  mysql:
+    type: mysql:8.0
+    disk: 256
