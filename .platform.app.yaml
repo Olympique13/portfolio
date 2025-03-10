@@ -1,25 +1,24 @@
-# The name of this app. Must be unique within a project.
 name: app
 
-# The runtime the application uses.  
-type: "php:8.3"
+type: php:8.3.15
 
-# Defines how the application is built and deployed.
-build:
-  flavor: "composer"
+mounts:
+  '/var/www/html':
+    source: 'local'
+    source_path: 'html'
 
-# Storage for the application
-disk: 512
-
-# Web server settings
-web:
-  locations:
-    "/":
-      root: "public"
-      passthru: "/index.php"
-
-# Dependencies for PHP extensions (correct format)
 dependencies:
   php:
-    ext-pdo: true
-    ext-mysqli: true
+    - ext-pdo
+    - ext-mysqli
+
+disk:
+  size: 256
+
+routes:
+  "https://www.{default}/":
+    type: upstream
+    upstream: "app:http"
+  "https://{default}/":
+    type: redirect
+    to: "https://www.{default}/"
