@@ -9,6 +9,12 @@ mounts:
 
 disk: 256
 
+web:
+  locations:
+    "/":
+      root: "public"
+      index: ["index.php"]
+
 routes:
   "https://www.{default}/":
     type: upstream
