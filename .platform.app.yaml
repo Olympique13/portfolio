@@ -21,7 +21,7 @@ web:
 # Dependencies for PHP extensions (correct format)
 dependencies:
   php:
-    - "ext-pdo"
-    - "ext-mysqli"
+    ext-pdo: true
+    ext-mysqli: true
 
-# Services (MySQL is declared via Platform.sh UI, no need to declare it here)
+# No need to declare MySQL here, Platform.sh does it automatically.
