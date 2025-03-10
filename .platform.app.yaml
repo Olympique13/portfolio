@@ -7,13 +7,7 @@ mounts:
     source: 'local'
     source_path: 'html'
 
-dependencies:
-  php:
-    - ext-pdo
-    - ext-mysqli
-
-disk:
-  size: 256
+disk: 256
 
 routes:
   "https://www.{default}/":
