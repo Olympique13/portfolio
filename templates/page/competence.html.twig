@@ -2,59 +2,86 @@
 
 {% block title %}Compétences{% endblock %}
 
-{% block javascripts %}
-    {{ encore_entry_script_tags('competence') }}
+{% block js_css_custom %}
+  {{ encore_entry_script_tags('competence') }}
+  {{ encore_entry_link_tags('competence') }}
 {% endblock %}
 
 {% block body %}   
-    <div class="bg-white">
-      <div class="mx-auto grid max-w-screen grid-cols-1 items-center gap-x-8 gap-y-16 py-12 lg:grid-cols-2">
-        <div>
-          <h2 class="text-lg font-bold tracking-tight text-gray-900 sm:text-4xl">Compétences Techniques & Humaines</h2>
-          <p class="mt-4 text-gray-500">Les principales compétences techniques (Hard Skills) et mes qualités professionnelles (Soft Skills) acquises durant mes études et mes différentes expériences professionnelles</p>
-  
-          <dl class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
-            <div class="border-t border-gray-200 pt-4">
-              <dt class="font-medium text-gray-900">Développement Full-Stack</dt>
-              <dd class="mt-2 text-sm text-gray-500">Symfony, TailwindCSS, JavaScript, PHP</dd>
-            </div>
-            <div class="border-t border-gray-200 pt-4">
-              <dt class="font-medium text-gray-900">Gestion des bases de données</dt>
-              <dd class="mt-2 text-sm text-gray-500">MySQL, Doctrine</dd>
-            </div>
-            <div class="border-t border-gray-200 pt-4">
-              <dt class="font-medium text-gray-900">Versioning</dt>
-              <dd class="mt-2 text-sm text-gray-500">Git, GitHub, GitLab</dd>
-            </div>
-            <div class="border-t border-gray-200 pt-4">
-              <dt class="font-medium text-gray-900">Déploiement (local)</dt>
-              <dd class="mt-2 text-sm text-gray-500">Wamp, Xamp, Laragon</dd>
-            </div>
-            <div class="border-t border-gray-200 pt-4">
-              <dt class="font-medium text-gray-900">Sécurité & Authentification</dt>
-              <dd class="mt-2 text-sm text-gray-500">EasyAdmin, SHA256</dd>
-            </div>
-            <div class="border-t border-gray-200 pt-4">
-              <dt class="font-medium text-gray-900">Esprit d’analyse</dt>
-              <dd class="mt-2 text-sm text-gray-500">Résolution de problèmes, adaptabilité</dd>
-            </div>
-            <div class="border-t border-gray-200 pt-4">
-              <dt class="font-medium text-gray-900">Travail en équipe</dt>
-              <dd class="mt-2 text-sm text-gray-500">Slack</dd>
-            </div>
-            <div class="border-t border-gray-200 pt-4">
-              <dt class="font-medium text-gray-900">Gestion de projet</dt>
-              <dd class="mt-2 text-sm text-gray-500">Monday, Slack, GitLab, Notion, Miro</dd>
-            </div>
-          </dl>
-        </div>
-        <div class="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
-            <img src="{{ asset('/assets/images/gestion_projet/Miro1.png') }}" alt="Gestion de projet (Slack, Monday, Miro, GitLab)" class="rounded-lg bg-gray-100">
-          <img src="" alt="Illustration 2" class="rounded-lg bg-gray-100">
-          <img src="" alt="Illustration 3" class="rounded-lg bg-gray-100">
-          <img src="" alt="Illustration 4" class="rounded-lg bg-gray-100">
-        </div>
+  <div class="bg-white">
+    <div class="mx-auto grid max-w-screen grid-cols-1 items-center gap-x-8 gap-y-16 py-12 lg:grid-cols-2">
+      <div>
+        <h2 class="text-lg font-bold tracking-tight text-gray-900 sm:text-4xl" data-aos="fade-up" data-aos-delay="150">Compétences Techniques & Humaines</h2>
+        <p class="mt-4 text-gray-500" data-aos="fade-up" data-aos-delay="200">Les principales compétences techniques (Hard Skills) et mes qualités professionnelles (Soft Skills) acquises durant mes études et mes différentes expériences professionnelles</p>
+
+        <dl class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
+          <div class="border-t border-gray-200 pt-4">
+            <dt class="font-medium text-gray-900">Développement Full-Stack</dt>
+            <dd class="mt-2 text-sm text-gray-500">Symfony, TailwindCSS, JavaScript, PHP</dd>
+          </div>
+          <div class="border-t border-gray-200 pt-4">
+            <dt class="font-medium text-gray-900">Gestion des bases de données</dt>
+            <dd class="mt-2 text-sm text-gray-500">MySQL, Doctrine</dd>
+          </div>
+          <div class="border-t border-gray-200 pt-4">
+            <dt class="font-medium text-gray-900">Versioning</dt>
+            <dd class="mt-2 text-sm text-gray-500">Git, GitHub, GitLab</dd>
+          </div>
+          <div class="border-t border-gray-200 pt-4">
+            <dt class="font-medium text-gray-900">Déploiement (local)</dt>
+            <dd class="mt-2 text-sm text-gray-500">Wamp, Xamp, Laragon</dd>
+          </div>
+          <div class="border-t border-gray-200 pt-4">
+            <dt class="font-medium text-gray-900">Sécurité & Authentification</dt>
+            <dd class="mt-2 text-sm text-gray-500">EasyAdmin, SHA256</dd>
+          </div>
+          <div class="border-t border-gray-200 pt-4">
+            <dt class="font-medium text-gray-900">Esprit d’analyse</dt>
+            <dd class="mt-2 text-sm text-gray-500">Résolution de problèmes, adaptabilité</dd>
+          </div>
+          <div class="border-t border-gray-200 pt-4">
+            <dt class="font-medium text-gray-900">Travail en équipe</dt>
+            <dd class="mt-2 text-sm text-gray-500">Slack</dd>
+          </div>
+          <div class="border-t border-gray-200 pt-4">
+            <dt class="font-medium text-gray-900">Gestion de projet</dt>
+            <dd class="mt-2 text-sm text-gray-500">Monday, Slack, GitLab, Notion, Miro</dd>
+          </div>
+        </dl>
       </div>
+      <div class="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
+        <img src="{{ asset('images/gestion_projet/Slack1.png') }}" alt="Slack" class="rounded-lg object-cover h-48 w-full cursor-pointer text-image" onclick="openImage(this)">
+        <img src="{{ asset('images/gestion_projet/Monday1.png') }}" alt="Monday" class="rounded-lg object-cover h-48 w-full cursor-pointer text-image" onclick="openImage(this)">
+        <img src="{{ asset('images/gestion_projet/GitLab1.png') }}" alt="Git Lab" class="rounded-lg object-cover h-48 w-full cursor-pointer text-image" onclick="openImage(this)">
+        <img src="{{ asset('images/gestion_projet/user_entity.png') }}" alt="Table User" class="rounded-lg object-cover h-48 w-full cursor-pointer text-image hover:bg-red-800" onclick="openImage(this)">
+      </div>
+
+      <!-- Fond pour l'image agrandie -->
+      <div id="imageModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div class="relative flex justify-center">
+              <img id="modalImage" class="w-10/12 max-h-full object-contain" src="" alt="Image agrandie">
+              <button onclick="closeImage()" class="absolute top-2 right-2 bg-white text-black p-2 rounded-full">X</button>
+          </div>
+      </div>
+
     </div>
+
+  </div>
+
+  <script>
+    // Fonction pour ouvrir l'image en grand
+    function openImage(image) {
+      const modal = document.getElementById("imageModal");
+      const modalImage = document.getElementById("modalImage");
+      modalImage.src = image.src; 
+      modal.classList.remove("hidden"); 
+    }
+
+    // Fonction pour fermer l'image
+    function closeImage() {
+      const modal = document.getElementById("imageModal");
+      modal.classList.add("hidden");
+    }
+  </script>
 
 {% endblock %}

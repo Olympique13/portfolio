@@ -1,1 +1,1 @@
-import './js/competence.js'
+import './js/competence'
