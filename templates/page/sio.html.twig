@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends 'base.html.twig' %}
 
 {% block title %}Portfolio - SIO{% endblock %}
@@ -129,4 +130,137 @@
         </div>
 
         </section>
+=======
+{% extends 'base.html.twig' %}
+
+{% block title %}Portfolio - SIO{% endblock %}
+
+{% block body %}
+    <section id="sio" class="pb-20">
+
+        {# Titre RESPONSIVE#}
+        <div class="flex justify-center flex-col items-center text-center" data-aos="fade-up" data-aos-delay="250">
+            <p class="text-xl md:text-2xl font-semibold">Découvrons ensemble le BTS SIO</p>
+            <p class="text-base md:text-lg leading-6">Brevet de Technicien Supérieur | Services Informatiques aux Organisations</p>
+        </div>
+
+        {# Options du BTS SIO RESPONSIVE#}
+        <div class="grid gap-x-14 md:gap-y-20 gap-y-9 grid-cols-1 md:grid-cols-2 pb-20 pt-14 mx-4 md:mx-28" data-aos-id-option>
+            <div class="w-full flex items-center" data-aos-anchor="[data-aos-id-option]" data-aos="fade-right" data-aos-delay="350">
+            <div class="flex gap-4 flex-col-reverse">
+                <div class="text-balance">
+                <h3 class="font-semibold flex justify-center pb-6 text-base md:text-2xl">SOLUTIONS D'INFRASTRUCTURE, SYSTEMES ET RESEAUX</h3>
+                <div class="text-slate-500 mt-2 leading-relaxed flex flex-col items-center">
+                    <ul class="list-disc list-inside text-base">
+                    <p class="md:text-lg text-sm mb-4">La spécialisation SISR forme des professionnels des réseaux et équipements informatiques.</p>
+                    <p class="font-semibold">Compétences acquises :</p>
+                    <li>Installation des réseaux et équipements.</li>
+                    <li>Maintenance des infrastructures informatiques.</li>
+                    <li>Sécurisation des systèmes et réseaux.</li>
+                    <li>Conception et mise en place des solutions réseau.</li>
+                    <li>Déploiement et maintien de la sécurité des infrastructures.</li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="w-full flex justify-center" data-aos-anchor="[data-aos-id-option]" data-aos="fade-left" data-aos-delay="600">
+            <div class="mt-1 rounded-full p-2 w-fit">
+                <img src="images/sio/sisr.jpg" class="rounded-3xl" alt="Photo Hamdaoui Rayan" sizes="(max-width: 800px) 100vw, 620px" width="520" height="424" decoding="async">
+            </div>
+            </div>
+            <hr class="block md:hidden">
+            <div class="hidden md:block w-full flex justify-center" data-aos-anchor="[data-aos-id-option]" data-aos="fade-right" data-aos-delay="700">
+            <div class="mt-1 rounded-full p-2 w-fit">
+                <img src="images/sio/slam.png" class="rounded-3xl" alt="Photo Hamdaoui Rayan" sizes="(max-width: 800px) 100vw, 620px" width="520" height="424" decoding="async">
+            </div>
+            </div>
+            <div class="w-full flex items-center" data-aos-anchor="[data-aos-id-option]" data-aos="fade-left" data-aos-delay="900">
+            <div class="flex gap-4 flex-col-reverse">
+                <div>
+                <h3 class="font-semibold flex justify-center pb-6 text-base md:text-2xl">SOLUTIONS LOGICIELLES ET APPLICATIONS METIERS</h3>
+                <div class="text-slate-500 mt-2 leading-relaxed flex flex-col items-center">
+                    <ul class="list-disc list-inside text-base">
+                    <p class="md:text-lg text-sm mb-4">La spécialisation SLAM forme des professionnels du développement et de la gestion d'applications.</p>
+                    <p class="font-semibold">Compétences acquises :</p>
+                    <li>Développement de sites web</li>
+                    <li>Création d'applications mobiles</li>
+                    <li>Conception de logiciels</li>
+                    <li>Rédaction de documentations techniques liées aux applications</li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="block md:hidden w-full flex justify-center">
+            <div class="mt-1 rounded-full p-2 w-fit">
+                <img src="images/sio/slam.png" class="rounded-3xl" alt="Photo Hamdaoui Rayan" sizes="(max-width: 800px) 100vw, 620px" width="520" height="424" decoding="async">
+            </div>
+            </div>
+        </div>
+
+        {# Débouchés du BTS SIO pt.1 RESPONSIVE#}
+        <div class="flex justify-center items-center my-12" data-aos="fade-up" data-aos-delay="400">
+            <hr class="absolute w-4/5">
+            <div class="flex space-x-6 bg-white rounded-full shadow-md px-6 py-6 z-40 ">
+                <div class="text-center">
+                    <p class="font-semibold text-md md:text-lg text-gray-900">Vers quelles débouchés ?</p>
+                    <div class="flex justify-around">
+                        <button id="sisrdebouche" class="text-md md:text-lg font-semibold text-green-600">SISR</button>
+                        <button id="slamdebouche" class="text-md md:text-lg font-semibold text-blue-600">SLAM</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {# Débouché pt.2 RESPONSIVE #}
+        <div class="flex justify-center" data-aos="fade-up" data-aos-delay="500">
+            <div class="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg md:w-2/4 w-11/12 ">
+                <div class="mx-3 text-balance mb-0 border-b-2 self-center border-slate-200 pt-3 pb-2 px-1">
+                    <span class="text-xl text-slate-600 font-bold">
+                        Quelles options s'offrent à nous après ce BTS ?
+                    </span>
+                </div>
+
+                <div class="p-4 text-start">
+                    <p class="text-slate-600 leading-normal font-light">
+                        A la sortie du BTS SIO, un large choix s'offrent à nous <br>
+                        De nombreuses débouchés dans le domaine de l'informatique permettent d'accéder à des postes variés tels que développeur, administrateur réseau,
+                        technicien de maintenance ou encore consultant en solutions numériques, tout en ouvrant la voie à des études supérieures pour se spécialiser davantage.
+                    </p>
+                </div>
+                <!-- Contenu SISR -->
+                <div id="contentSisr" class="mx-3 mb-0 self-center pt-3 pb-2 px-1" style="display:none">
+                    <span class="md:text-xl text-lg text-green-600 font-bold">SISR :</span>
+                    <p class="text-slate-600 leading-normal font-light pb-5">
+                        Formés pour être des spécialistes en gestion et sécurisation des réseaux, voici les débouchés possibles :
+                    </p>
+                    <ul class="list-disc list-inside text-balance">
+                        <li>Administrateur système, réseau et sécurité</li>
+                        <li>Administrateur systèmes, réseaux et bases de données</li>
+                        <li>Chef de projet logiciel et réseau</li>
+                        <li>Concepteur de systèmes d'information</li>
+                        <li>Responsable en ingénierie systèmes et réseaux</li>
+                    </ul>
+                </div>
+
+                <!-- Contenu SLAM -->
+                <div id="contentSlam" class="mx-3 mb-0 self-center pt-3 pb-2 px-1" style="display:none">
+                    <span class="md:text-xl text-lg text-blue-600 font-bold">SLAM :</span>
+                    <p class="text-slate-600 leading-normal font-light pb-5">
+                        Formés pour être des spécialistes dans le développement et la gestion d'applications, voici les débouchés possibles :
+                    </p>
+                    <ul class="list-disc list-inside text-balance">
+                        <li>Concepteur développeur d'applications</li>
+                        <li>Concepteur développeur web</li>
+                        <li>Consultant en solutions numériques</li>
+                        <li>Ingénieur d'études et développement en informatique</li>
+                        <li>Responsable de projet informatique</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        </section>
+>>>>>>> prod
 {% endblock %}
