@@ -4,8 +4,11 @@ namespace App\Controller;
 
 use App\Entity\Contact;
 use App\Form\ContactType;
+use Symfony\Component\Mime\Email;
+use Symfony\Component\Mime\Address;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -33,7 +36,7 @@ class PageController extends AbstractController
     }
 
     #[Route('/contact', name: 'app_contact')]
-    public function formContact(Request $request, EntityManagerInterface $entityManager): Response
+    public function formContact(Request $request, EntityManagerInterface $entityManager, MailerInterface $mailer): Response
     {
         $contact = new Contact();
         $form = $this->createForm(ContactType::class, $contact);
@@ -44,10 +47,19 @@ class PageController extends AbstractController
                 $entityManager->persist($contact);
                 $entityManager->flush();
 
+                $email = (new Email())
+                ->from($this->getParameter('EMAIL_FROM'))
+                ->to('contact@rayanweb.fr')
+                ->subject($contact->getSujet())
+                ->html($contact->getNom() . ' ' . $contact->getPrenom() . '<br>' . $contact->getEmail() . '<br>' . $contact->getMessage());
+
+                $mailer->send($email);
+
                 return new JsonResponse([
                     'code' => 200,
-                    'message' => 'Merci ! Le formulaire est validé',
+                    'message' => 'Merci ! Le formulaire est valide',
                 ]);
+
             } else {
                 $errors = [];
                 foreach ($form->getErrors(true) as $error) {

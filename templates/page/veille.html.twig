@@ -5,17 +5,14 @@
 {% block body %}
 <div class="mx-auto px-8">
     {# Introduction à la veille technologique #}
-    <section class="py-12">
-        <h1 class="text-3xl font-bold text-gray-800 text-center group">
-            <span class="hover:block relative">
+    <section class="py-12 flex justify-center">
+        <h1 class="text-3xl font-bold text-gray-800 text-center relative group">
+            <span class="relative cursor-pointer">
                 Ma <span class="text-blue-700">Veille Technologique</span>
-                <span class="absolute -bottom-24 hidden group-hover:block bg-gray-800 text-white text-sm py-1 px-2 rounded-md max-w-7xl w-max">
-                La veille technologique, élément de la veille stratégique, consiste à surveiller les évolutions techniques, 
-                les innovations dans un secteur d’activité donnée. La veille technologique comprend notamment la surveillance, 
-                la collecte, le partage et la diffusion d’information permettant d’anticiper ou de s’informer sur des changements en 
-                matière de recherche, développement, brevet, lancement de nouveaux produits, matériaux, processus, concepts, innovation de 
-                fabrication, etc…. Cela a pour but d’évaluer l’impact sur l’environnement et l’organisation..    
-                </span>
+            </span>
+
+            <span class="absolute left-1/2 -translate-x-1/2 top-10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300 bg-gray-800 text-white text-sm py-2 px-3 rounded-md w-max max-w-xs shadow-lg pointer-events-none">
+                La veille technologique suit les innovations d’un secteur pour anticiper les changements et évaluer leur impact.
             </span>
         </h1>
     </section>
@@ -23,43 +20,41 @@
     {# Sujet de la veille technologique #}
     <section class="py-12">
         <h2 class="text-2xl font-semibold text-gray-700 mb-6">Sujet de la Veille Technologique</h2>
-        <p class="text-lg text-gray-600 pr-5 text-balance">
-            Ma veille technologique se concentre sur <b>les frameworks back-end en PHP</b>. L'objectif est de suivre les évolutions, 
-            les nouvelles versions, les bonnes pratiques et les innovations dans ce domaine. En particulier, je m'intéresse 
-            aux frameworks populaires comme Symfony ou Laravel, pour rester à jour avec les meilleures 
-            pratiques de développement et les nouvelles fonctionnalités.
+        <p class="text-lg text-gray-600 pr-5 md:pr-0 text-balance">
+            Ma veille technologique se concentre sur <b>le framework PHP Symfony</b>. L'objectif est de suivre les évolutions, 
+            les nouvelles versions, les bonnes pratiques et les innovations dans ce domaine.
         </p>
     </section>
 
     {# Sources de veille technologique #}
     <section class="py-12">
         <h2 class="text-2xl font-semibold text-gray-700 mb-6">Sources principales</h2>
-        <ul class="list-disc pl-6 text-lg text-gray-600">
+        <ul class="list-disc pl-6 text-lg text-gray-600 space-y-4">
             <li><a href="https://symfony.com/blog" class="text-blue-600 hover:underline">Symfony Blog</a></li>
             <li><a href="https://packagist.org/explore/" class="text-blue-600 hover:underline">Packagist</a> (nouvelles dépendances)</li>
             <li><a href="https://twitter.com/symfony" class="text-blue-600 hover:underline">X (anciennement Twitter) Symfony</a></li>
             <li><a href="https://www.reddit.com/r/PHP/" class="text-blue-600 hover:underline">Reddit PHP</a> (discussions et tendances)</li>
             <li><a href="https://www.google.fr/alerts" class="text-blue-600 hover:underline">Google Alerte</a><span onclick="document.getElementById('veille-alerte').style.display='block'; return false;"> (mots clés) </span></li>
-            <img id="veille-alerte" src="{{ asset('images/veille/alerte.png') }}" alt="Mots clés" style="display:none;">
+            <img id="veille-alerte" src="{{ asset('images/veille/alerte.png') }}" alt="Mots clés" class="mt-4 w-full md:w-auto" style="display:none;">
         </ul>
     </section>
 
     {# Articles pertinents Symfony #}
-    <ul role="feed" class="relative flex flex-col gap-12 py-12 pl-6 before:absolute before:top-0 before:left-6 before:h-full before:border before:-translate-x-1/2 before:border-slate-200 before:border-dashed after:absolute after:top-6 after:left-6 after:bottom-6 after:border after:-translate-x-1/2 after:border-slate-200 ">
-        <li role="article" class="relative pl-6 before:absolute before:z-10 before:left-0 before:top-2 before:h-2 before:w-2 before:-translate-x-1/2 before:rounded-full before:bg-blue-500 before:ring-2 before:ring-white">
+    <ul role="feed" class="relative flex flex-col gap-12 py-12 pl-6 before:absolute before:top-0 before:left-6 before:h-full before:border before:-translate-x-1/2 before:border-slate-200 before:border-dashed after:absolute after:top-6 after:left-6 after:bottom-6 after:border after:-translate-x-1/2 after:border-slate-200 md:pl-12 md:before:left-12 md:after:left-12">
+        <li role="article" class="relative pl-6 before:absolute before:z-10 before:left-0 before:top-2 before:h-2 before:w-2 before:-translate-x-1/2 before:rounded-full before:bg-blue-500 before:ring-2 before:ring-white md:pl-12 md:before:left-12">
             <div class="flex flex-col flex-1 gap-4">
-            <h4 class="text-lg font-medium text-blue-500"><a href="https://symfony.com/blog/a-week-of-symfony-939-23-29-december-2024">Mise à jour Symfony</a> <span class="text-lg font-normal text-slate-500">| 23 - 29/12/2025</span></h4>
-            <p class=" text-slate-500 text-balance">Publication & mise en ligne d'une nouvelle version de Symfony (6.4 => 7.1) améliorant les bugs et implémentant une nouvelle interface. Une nouvelle fonction importante à été déclaré, is_granted permettant l'autorisation d'accès (ou non) à une donnée/page</p>
+                <h4 class="text-lg font-medium text-blue-500"><a href="https://symfony.com/blog/a-week-of-symfony-939-23-29-december-2024">Mise à jour Symfony</a> <span class="text-lg font-normal text-slate-500">| 23 - 29/12/2024</span></h4>
+                <p class="text-slate-500 text-balance">Publication & mise en ligne d'une nouvelle version de Symfony (6.4 => 7.1) améliorant les bugs et implémentant une nouvelle interface. Une nouvelle fonction importante à été déclaré, is_granted permettant l'autorisation d'accès (ou non) à une donnée/page</p>
             </div>
         </li>
-        <li role="article" class="relative pl-6 before:absolute before:z-10 before:left-0 before:top-2 before:h-2 before:w-2 before:-translate-x-1/2 before:rounded-full before:bg-blue-500 before:ring-2 before:ring-white">
+        <li role="article" class="relative pl-6 before:absolute before:z-10 before:left-0 before:top-2 before:h-2 before:w-2 before:-translate-x-1/2 before:rounded-full before:bg-blue-500 before:ring-2 before:ring-white md:pl-12 md:before:left-12">
             <div class="flex flex-col flex-1 gap-4">
-            <h4 class="text-lg font-medium text-blue-500"><a href="https://symfony.com/blog/a-week-of-symfony-939-23-29-december-2024">Conférence Symfony</a><span class="text-lg font-normal text-slate-500">| 02 - 8/12/2024</span></h4>
-            <p class="text-slate-500">Présentation de Symfony à la <a href="https://www.php.net/archive/2024.php#2024-02-15-3" class="text-blue-800 underline">PHP World Conference</a> partageant des entreprises qui utilisent Symonfy pour des applications complexe</p>
-            <ul class="pl-5 list-disc text-slate-500 marker:text-blue-500">
-                <li>Shopware, création de site e-commerce</li>
-                <li>MediaCorp. , gestions d'applications liées à la diffusion et à la gestion de contenu multimédia</li>
-            </ul>
+                <h4 class="text-lg font-medium text-blue-500"><a href="https://symfony.com/blog/a-week-of-symfony-939-23-29-december-2024">Conférence Symfony</a><span class="text-lg font-normal text-slate-500">| 02 - 8/12/2024</span></h4>
+                <p class="text-slate-500">Présentation de Symfony à la <a href="https://www.php.net/archive/2024.php#2024-02-15-3" class="text-blue-800 underline">PHP World Conference</a> partageant des entreprises qui utilisent Symonfy pour des applications complexe</p>
+                <ul class="pl-5 list-disc text-slate-500 marker:text-blue-500">
+                    <li>Shopware, création de site e-commerce</li>
+                    <li>MediaCorp. , gestions d'applications liées à la diffusion et à la gestion de contenu multimédia</li>
+                </ul>
             </div>
         </li>
     </ul>
