@@ -12,6 +12,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TelephoneField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 
 class StageCrudController extends AbstractCrudController
 {
@@ -35,6 +36,7 @@ class StageCrudController extends AbstractCrudController
             ImageField::new('imageName', 'LOGO Entreprise')->setBasePath('images/stage')->onlyOnIndex(),
             DateField::new('debut')->hideOnIndex(),
             DateField::new('fin')->hideOnIndex(),
+            BooleanField::new('isVisible', 'Afficher'),
         ];
     }
 }

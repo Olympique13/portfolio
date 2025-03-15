@@ -7,13 +7,13 @@
 
 	{# Text RESPONSIVE #}
 	<div class="grid grid-cols-1" data-aos="fade-up" data-aos-delay="250">
-		<h1 class="md:text-2xl text-xl font-bold text-center mb-6 text-balance">Mes différents stages depuis le BTS :</h1>
+		<h1 class="md:text-2xl text-xl font-bold text-center mb-6">Mon expérience professionnelle</h1>
 	</div>
 	<div class="grid grid-cols-1 md:grid-cols-3 gap-4" data-aos="fade-up" data-aos-delay="300">
 		<div></div>
-		<h2 class="text-lg md:text-xl text-center mb-10 md:mb-20">Durant mes années de BTS SIO, j'ai dû effectuer 2 stages pour développer
-			<span class="text-green-700 font-bold underline">mes compétences</span>
-			et en
+		<h2 class="text-lg md:text-xl text-center mb-10 md:mb-20 text-pretty">Durant mes années de BTS SIO, j'ai dû mettre à profit mes compétences lors
+			<span class="text-green-700 font-bold underline">d'expériences professionnelles</span>
+			afin de les développer et d'en
 			<span class="text-green-700 font-bold underline">acquérir davantage</span>
 		</h2>
 	</div>
@@ -24,32 +24,34 @@
 		{% if stage|length > 0 %}
 			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8" data-aos="fade-right" data-aos-delay="400">
 				{% for stages in stage | sort((a, b) => a.debut <=> b.debut) %}
-					<div class="bg-white border border-gray-200 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-20">
-						<div class="flex flex-col items-center h-full">
-							<div class="mt-1 rounded-full p-2 w-fit flex justify-center">
-								<img src="/images/stage/{{ stages.imageName }}" class="rounded-3xl object-contain w-max h-16" alt="Logo {{ stages.entreprise }}"  decoding="async">
-							</div>
-							<div class="flex flex-col items-center justify-center mt-4 flex-grow">
-								<div class="text-center mb-8">
-									<a href="{{ path ('app_stage_show', {'slug' : stages.slug})}}">
-										<h2 class="text-center text-lg md:text-xl font-bold mb-3 text-gray-800 hover:text-blue-600 transition-colors">{{ stages.entreprise }}</h2>
-									</a>
-									{# <p class="text-gray-600 mb-4 text-center">{{ stages.adresse }}</p> #}
-									<span>Du
-										{{ stages.debut|date('d/m/Y') }}
-										au
-										{{ stages.fin|date('d/m/y') }}
-									</span>
+					{% if stages.isVisible == 1 %}
+						<div class="bg-white border border-gray-200 rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow mb-20">
+							<div class="flex flex-col items-center h-full">
+								<div class="mt-1 rounded-full p-2 w-fit flex justify-center">
+									<img src="/images/stage/{{ stages.imageName }}" class="rounded-3xl object-contain w-max h-16" alt="Logo {{ stages.entreprise }}"  decoding="async">
 								</div>
+								<div class="flex flex-col items-center justify-center mt-4 flex-grow">
+									<div class="text-center mb-8">
+										<a href="{{ path ('app_stage_show', {'slug' : stages.slug})}}">
+											<h2 class="text-center text-lg md:text-xl font-bold mb-3 text-gray-800 hover:text-blue-600 transition-colors">{{ stages.entreprise }}</h2>
+										</a>
+										{# <p class="text-gray-600 mb-4 text-center">{{ stages.adresse }}</p> #}
+										<span>Du
+											{{ stages.debut|date('d/m/Y') }}
+											au
+											{{ stages.fin|date('d/m/y') }}
+										</span>
+									</div>
+								</div>
+								<a href="{{ path ('app_stage_show', {'slug' : stages.slug}) }}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition-colors mt-auto">
+									Voir le compte rendu
+									<svg class="w-4 h-4 ml-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 14 10">
+										<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+									</svg>
+								</a>
 							</div>
-							<a href="{{ path ('app_stage_show', {'slug' : stages.slug}) }}" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition-colors mt-auto">
-								Voir le compte rendu
-								<svg class="w-4 h-4 ml-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 14 10">
-									<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-								</svg>
-							</a>
 						</div>
-					</div>
+					{% endif %}
 				{% endfor %}
 			</div>
 		{% else %}

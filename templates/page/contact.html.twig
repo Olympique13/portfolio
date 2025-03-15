@@ -1,68 +1,202 @@
+<<<<<<< HEAD
 {% extends 'base.html.twig' %}
 
 {% block title %}Nous contacter{% endblock %}
 
 {% block javascripts %}
-	{{ encore_entry_script_tags('contact') }}
+    {{ encore_entry_script_tags('contact') }}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('formContact');
+            const submitButton = form.querySelector('button[type="submit"]');
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                submitButton.disabled = true;
+                const formData = new FormData(form);
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.code === 200) {
+                        document.getElementById('successContact').style.display = 'block';
+                        document.getElementById('errorContact').style.display = 'none';
+                    } else {
+                        document.getElementById('successContact').style.display = 'none';
+                        document.getElementById('errorContact').style.display = 'block';
+                    }
+                    submitButton.disabled = false;
+                })
+                .catch(error => {
+                    document.getElementById('successContact').style.display = 'none';
+                    document.getElementById('errorContact').style.display = 'block';
+                    submitButton.disabled = false;
+                });
+            });
+        });
+    </script>
 {% endblock %}
 
 {% block body %}
-	<div class="container mx-auto max-w-2xl">
-		<h1 class="text-3xl font-bold mb-6 text-center">Me contacter</h1>
+    <div class="container mx-auto max-w-2xl">
+        <h1 class="text-3xl font-bold mb-6 text-center">Me contacter</h1>
 
-		{{ form_start(ContactForm, { 'attr' : {'id':'formContact'}} ) }}
-		{{ form_errors(ContactForm) }}
+        {{ form_start(ContactForm, { 'attr' : {'id':'formContact'}} ) }}
+        {{ form_errors(ContactForm) }}
 
-		<div class="space-y-6">
-			<div class="space-y-4">
-				<div>
-					{{ form_label(ContactForm.nom, "Nom", {'label_attr': {'class': 'block text-sm font-medium text-gray-700'}}) }}
-					{{ form_widget(ContactForm.nom, {'attr': {'class': 'mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md', 'placeholder': 'Nom'}}) }}
-					{{ form_errors(ContactForm.nom) }}
-				</div>
-				<div>
-					{{ form_label(ContactForm.prenom, "Prénom", {'label_attr': {'class': 'block text-sm font-medium text-gray-700'}}) }}
-					{{ form_widget(ContactForm.prenom, {'attr': {'class': 'mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md', 'placeholder': 'Prénom'}}) }}
-				</div>
-				<div>
-					{{ form_label(ContactForm.email, "Email", {'label_attr': {'class': 'block text-sm font-medium text-gray-700'}}) }}
-					{{ form_widget(ContactForm.email, {'attr': {'class': 'mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md', 'placeholder': 'Votre @Mail'}}) }}
-				</div>
-				<div>
-					{{ form_label(ContactForm.sujet, "Sujet", {'label_attr': {'class': 'block text-sm font-medium text-gray-700'}}) }}
-					{{ form_widget(ContactForm.sujet, {'attr': {'class': 'mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md', 'placeholder': 'De quoi voulez-vous nous parler ?'}}) }}
-				</div>
-				<div>
-					{{ form_label(ContactForm.message, "Message", {'label_attr': {'class': 'block text-sm font-medium text-gray-700'}}) }}
-					{{ form_widget(ContactForm.message, {'attr': {'class': 'mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md', 'placeholder': 'Expliquez ici'}}) }}
-				</div>
-			</div>
-			<div id="successContact" style="display:none;" class="p-6 my-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
-				Votre message a été correctement envoyé, une réponse sous 48h vous sera transmise par mail 
-			</div>
-			<div id="errorContact" style="display:none;" class="p-6 my-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
-				Une erreur est survenue lors de l'envoi, vérifiez vos informations
-			</div>
-			<div>
-				<button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Envoyer</button>
-			</div>
-		</div>
-		{{ form_end(ContactForm) }}
+        <div class="space-y-6">
+            <div class="space-y-4">
+                <div>
+                    {{ form_label(ContactForm.nom, "Nom", {'label_attr': {'class': 'block text-sm font-medium text-gray-700'}}) }}
+                    {{ form_widget(ContactForm.nom, {'attr': {'class': 'mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md', 'placeholder': 'Nom'}}) }}
+                    {{ form_errors(ContactForm.nom) }}
+                </div>
+                <div>
+                    {{ form_label(ContactForm.prenom, "Prénom", {'label_attr': {'class': 'block text-sm font-medium text-gray-700'}}) }}
+                    {{ form_widget(ContactForm.prenom, {'attr': {'class': 'mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md', 'placeholder': 'Prénom'}}) }}
+                </div>
+                <div>
+                    {{ form_label(ContactForm.email, "Email", {'label_attr': {'class': 'block text-sm font-medium text-gray-700'}}) }}
+                    {{ form_widget(ContactForm.email, {'attr': {'class': 'mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md', 'placeholder': 'Votre @Mail'}}) }}
+                </div>
+                <div>
+                    {{ form_label(ContactForm.sujet, "Sujet", {'label_attr': {'class': 'block text-sm font-medium text-gray-700'}}) }}
+                    {{ form_widget(ContactForm.sujet, {'attr': {'class': 'mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md', 'placeholder': 'De quoi voulez-vous nous parler ?'}}) }}
+                </div>
+                <div>
+                    {{ form_label(ContactForm.message, "Message", {'label_attr': {'class': 'block text-sm font-medium text-gray-700'}}) }}
+                    {{ form_widget(ContactForm.message, {'attr': {'class': 'mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md', 'placeholder': 'Expliquez ici'}}) }}
+                </div>
+            </div>
+            <div id="successContact" style="display:none;" class="p-6 my-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
+                Votre message a été correctement envoyé, une réponse sous 48h vous sera transmise par mail 
+            </div>
+            <div id="errorContact" style="display:none;" class="p-6 my-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                Une erreur est survenue lors de l'envoi, vérifiez vos informations
+            </div>
+            <div>
+                <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Envoyer</button>
+            </div>
+        </div>
+        {{ form_end(ContactForm) }}
 
-		
+        <div class="my-24">
+            <h2 class="text-lg md:text-xl font-semibold mb-4">Vous pouvez me retrouver sur :</h2>
+            <div class="flex justify-evenly">
+                <a href="https://www.linkedin.com/in/rayan-hamdaoui-2b9476203/" class="text-blue-600 hover:underline flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.25c-.97 0-1.75-.78-1.75-1.75s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.75-1.75 1.75zm13.5 11.25h-3v-5.5c0-1.38-.02-3.16-1.93-3.16-1.93 0-2.23 1.51-2.23 3.06v5.6h-3v-10h2.88v1.36h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.59v5.61z"/></svg>
+                    LinkedIn
+                </a>                
+                <a href="https://github.com/Olympique13" class="text-blue-600 hover:underline flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.083-.729.083-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.76-1.605-2.665-.305-5.466-1.335-5.466-5.93 0-1.31.467-2.38 1.235-3.22-.125-.303-.535-1.523.115-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.4 3-.405 1.02.005 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.655 1.653.245 2.873.12 3.176.77.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.43.37.81 1.096.81 2.21 0 1.595-.015 2.88-.015 3.27 0 .32.21.694.825.577 4.765-1.587 8.2-6.084 8.2-11.387 0-6.627-5.373-12-12-12z"/></svg>
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+=======
+{% extends 'base.html.twig' %}
 
-		<div class="my-24">
-			<h2 class="text-lg md:text-xl font-semibold mb-4">Vous pouvez me retrouver sur :</h2>
-			<div class="flex justify-evenly">
-				<a href="https://www.linkedin.com/in/rayan-hamdaoui-2b9476203/" class="text-blue-600 hover:underline flex items-center">
-					<svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.25c-.97 0-1.75-.78-1.75-1.75s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.75-1.75 1.75zm13.5 11.25h-3v-5.5c0-1.38-.02-3.16-1.93-3.16-1.93 0-2.23 1.51-2.23 3.06v5.6h-3v-10h2.88v1.36h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.59v5.61z"/></svg>
-					LinkedIn
-				</a>				
-				<a href="https://github.com/Olympique13" class="text-blue-600 hover:underline flex items-center">
-					<svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.083-.729.083-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.76-1.605-2.665-.305-5.466-1.335-5.466-5.93 0-1.31.467-2.38 1.235-3.22-.125-.303-.535-1.523.115-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.4 3-.405 1.02.005 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.655 1.653.245 2.873.12 3.176.77.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.43.37.81 1.096.81 2.21 0 1.595-.015 2.88-.015 3.27 0 .32.21.694.825.577 4.765-1.587 8.2-6.084 8.2-11.387 0-6.627-5.373-12-12-12z"/></svg>
-					GitHub
-				</a>
-			</div>
-		</div>
-	</div>
+{% block title %}Nous contacter{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('contact') }}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('formContact');
+            const submitButton = form.querySelector('button[type="submit"]');
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                submitButton.disabled = true;
+                const formData = new FormData(form);
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.code === 200) {
+                        document.getElementById('successContact').style.display = 'block';
+                        document.getElementById('errorContact').style.display = 'none';
+                    } else {
+                        document.getElementById('successContact').style.display = 'none';
+                        document.getElementById('errorContact').style.display = 'block';
+                    }
+                    submitButton.disabled = false;
+                })
+                .catch(error => {
+                    document.getElementById('successContact').style.display = 'none';
+                    document.getElementById('errorContact').style.display = 'block';
+                    submitButton.disabled = false;
+                });
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block body %}
+    <div class="container mx-auto max-w-2xl">
+        <h1 class="text-3xl font-bold mb-6 text-center">Me contacter</h1>
+
+        {{ form_start(ContactForm, { 'attr' : {'id':'formContact'}} ) }}
+        {{ form_errors(ContactForm) }}
+
+        <div class="space-y-6">
+            <div class="space-y-4">
+                <div>
+                    {{ form_label(ContactForm.nom, "Nom", {'label_attr': {'class': 'block text-sm font-medium text-gray-700'}}) }}
+                    {{ form_widget(ContactForm.nom, {'attr': {'class': 'mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md', 'placeholder': 'Nom'}}) }}
+                    {{ form_errors(ContactForm.nom) }}
+                </div>
+                <div>
+                    {{ form_label(ContactForm.prenom, "Prénom", {'label_attr': {'class': 'block text-sm font-medium text-gray-700'}}) }}
+                    {{ form_widget(ContactForm.prenom, {'attr': {'class': 'mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md', 'placeholder': 'Prénom'}}) }}
+                </div>
+                <div>
+                    {{ form_label(ContactForm.email, "Email", {'label_attr': {'class': 'block text-sm font-medium text-gray-700'}}) }}
+                    {{ form_widget(ContactForm.email, {'attr': {'class': 'mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md', 'placeholder': 'Votre @Mail'}}) }}
+                </div>
+                <div>
+                    {{ form_label(ContactForm.sujet, "Sujet", {'label_attr': {'class': 'block text-sm font-medium text-gray-700'}}) }}
+                    {{ form_widget(ContactForm.sujet, {'attr': {'class': 'mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md', 'placeholder': 'De quoi voulez-vous nous parler ?'}}) }}
+                </div>
+                <div>
+                    {{ form_label(ContactForm.message, "Message", {'label_attr': {'class': 'block text-sm font-medium text-gray-700'}}) }}
+                    {{ form_widget(ContactForm.message, {'attr': {'class': 'mt-1 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md', 'placeholder': 'Expliquez ici'}}) }}
+                </div>
+            </div>
+            <div id="successContact" style="display:none;" class="p-6 my-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
+                Votre message a été correctement envoyé, une réponse sous 48h vous sera transmise par mail 
+            </div>
+            <div id="errorContact" style="display:none;" class="p-6 my-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+                Une erreur est survenue lors de l'envoi, vérifiez vos informations
+            </div>
+            <div>
+                <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Envoyer</button>
+            </div>
+        </div>
+        {{ form_end(ContactForm) }}
+
+        <div class="my-24">
+            <h2 class="text-lg md:text-xl font-semibold mb-4">Vous pouvez me retrouver sur :</h2>
+            <div class="flex justify-evenly">
+                <a href="https://www.linkedin.com/in/rayan-hamdaoui-2b9476203/" class="text-blue-600 hover:underline flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.25c-.97 0-1.75-.78-1.75-1.75s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.75-1.75 1.75zm13.5 11.25h-3v-5.5c0-1.38-.02-3.16-1.93-3.16-1.93 0-2.23 1.51-2.23 3.06v5.6h-3v-10h2.88v1.36h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.59v5.61z"/></svg>
+                    LinkedIn
+                </a>                
+                <a href="https://github.com/Olympique13" class="text-blue-600 hover:underline flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.083-.729.083-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.76-1.605-2.665-.305-5.466-1.335-5.466-5.93 0-1.31.467-2.38 1.235-3.22-.125-.303-.535-1.523.115-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.4 3-.405 1.02.005 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.655 1.653.245 2.873.12 3.176.77.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.43.37.81 1.096.81 2.21 0 1.595-.015 2.88-.015 3.27 0 .32.21.694.825.577 4.765-1.587 8.2-6.084 8.2-11.387 0-6.627-5.373-12-12-12z"/></svg>
+                    GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+>>>>>>> prod
 {% endblock %}
