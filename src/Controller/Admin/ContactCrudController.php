@@ -31,10 +31,10 @@ class ContactCrudController extends AbstractCrudController
     public function configureActions(Actions $actions): Actions
     {        
         return parent::configureActions($actions)
-            ->add(Crud::PAGE_INDEX, Action::DETAIL)
-            ->disable(Action::NEW)
-            ->disable(Action::EDIT)
-            ->disable(Action::DELETE);
+            ->add(Crud::PAGE_INDEX, Action::DETAIL);
+            // ->disable(Action::NEW)
+            // ->disable(Action::EDIT)
+            // ->disable(Action::DELETE);
     }
 
     public function configureFields(string $pageName): iterable
