@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\Contact;
 use App\Form\ContactType;
 use Symfony\Component\Mime\Email;
-use Symfony\Component\Mime\Address;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Mailer\MailerInterface;
@@ -29,11 +28,11 @@ class PageController extends AbstractController
         return $this->render('page/sio.html.twig', array());
     }
 
-    #[Route('/competences', name: 'app_competence')]
-    public function competence(): Response
-    {
-        return $this->render('page/competence.html.twig', array());
-    }
+    // #[Route('/competences', name: 'app_competence')]
+    // public function competence(): Response
+    // {
+    //     return $this->render('page/competence.html.twig', array());
+    // }
 
     #[Route('/contact', name: 'app_contact')]
     public function formContact(Request $request, EntityManagerInterface $entityManager, MailerInterface $mailer): Response
@@ -78,10 +77,10 @@ class PageController extends AbstractController
         ]);
     }
 
-    #[Route('/veille-technologique', name: 'app_veille')]
-    public function veille(): Response
-    {
+    // #[Route('/veille-technologique', name: 'app_veille')]
+    // public function veille(): Response
+    // {
 
-        return $this->render('page/veille.html.twig', array());
-    }
+    //     return $this->render('page/veille.html.twig', array());
+    // }
 }
